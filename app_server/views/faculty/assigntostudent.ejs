@@ -1,0 +1,153 @@
+<<%- include('./dash') -%>
+
+
+
+<h2>Assign Tasks To Student</h2>
+
+<button class="accordion">Open Forum</button>
+
+<div class="panel">
+  <div class="card">
+      <div class="card-body">
+        <h5>Open Forum</h5>
+
+        <div></br></br></br>
+          <form>
+            <h6>Answer Question</h6>
+          <textarea rows="2" cols="100">
+
+          </textarea>
+        </form>
+          <button>Post</button>
+
+      </div>
+  </div>
+</div>
+</div>
+
+<button class="accordion">HOD Assigned Tasks</button>
+<div class="panel">
+  <div class="card">
+      <div class="card-body">
+
+          <div class="table-responsive m-t-40">
+              <table id="example" class="table display table-bordered table-striped">
+                  <thead>
+                      <tr>
+                          <th>Task Name</th>
+                          <th>Topic/Subtopic</th>
+                          <th></th>
+                          <th>Questions UnAnswered</th>
+                          <th>Open Forum Questions</th>
+                          <th>Points Earned</th>
+                          <th></th>
+                      </tr>
+                  </thead>
+                  <tfoot>
+                      <tr>
+                        <th>Faculty Name</th>
+                        <th>Class Asigned</th>
+                        <th>Questions Answered</th>
+                        <th>Questions UnAnswered</th>
+                        <th>Open Forum Questions</th>
+                        <th>Points Earned</th>
+                        <th></th>
+                      </tr>
+                  </tfoot>
+                  <tbody>
+                      <tr>
+                          <td>Mr.Singh</td>
+                          <td>FullStack 1</td>
+                          <td>4</td>
+                          <td>1</td>
+                          <td>3</td>
+                          <td>7</td>
+                          <td><button>Contact</button></td>
+
+                      </tr>
+                      <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+
+</div>
+
+
+<button class="accordion">To-Do List</button>
+<div class="panel">
+  <div class="card">
+      <div class="card-body">
+
+
+      </div>
+  </div>
+
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
+</script>
+
+
+
+<%- include('./footer') -%>

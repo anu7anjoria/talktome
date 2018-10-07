@@ -6,4 +6,5 @@ router.get('/',function(req,res){
     res.render('signup',{title:'signup'});
 });
 router.post('/',ctrlMain.SignUp);
+
 module.exports = router;
