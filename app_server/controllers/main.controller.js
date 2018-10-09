@@ -33,17 +33,7 @@ const SignUp = function(req,res){
 }
 
 const Login = function(req,res){
-    user.findOne({
-    },(err,user)=>{
-        if(err){
-        res
-            .status(404)
-            .json(err);
-        }
-        else if(user.emailid=='ak' && user.password=='ak'){
-            res.send('Logged in Sucessfully');
-        }
-    });
+
 }
 
 module.exports = {
