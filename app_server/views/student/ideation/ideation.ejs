@@ -20,14 +20,16 @@
                                        <div class="card-body">
                                            <h4 class="card-title">Your Idea</h4>
                                            <h6 class="card-subtitle"></h6>
-                                           <form method="post">
+                                           <form action="ideation" method="POST">
                                                <div class="form-group">
-                                                   <textarea class="textarea_editor form-control" rows="15" placeholder="Enter text ..." style="height:450px"></textarea>
+                                                   <label for="ideadesc"></label>
+                                                   <textarea class="textarea_editor form-control" rows="15" placeholder="Enter text ..." style="height:450px" name="ideadesc" required></textarea>
                                                </div>
-                                           </form>
-                                           <button type="button" class="btn btn-dark btn-outline btn-rounded m-b-10 m-l-5">Cancel</button>
-                                           <button type="button" class="btn btn-info btn-outline btn-rounded m-b-10 m-l-5">Post</button>
-
+                                               <button type="button" class="btn btn-dark btn-outline btn-rounded m-b-10 m-l-5">Cancel</button>
+                                               <button type="submit" class="btn btn-info btn-outline btn-rounded m-b-10 m-l-5">Post</button>
+    
+                                            </form>
+                                          
                                        </div>
                                    </div>
                                </div>

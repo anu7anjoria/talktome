@@ -1,20 +1,25 @@
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 // const counsel = mongoose.model('counsel');
 // const feed = mongoose.model('feed'); 
-// const idea = mongoose.model('idea');
+const idea = mongoose.model('idea');
 
 // //Buisness Logic Start
-// const Idea = function(req,res){
-    
-// };
 
-// const Counsel = function(req,res){
+const Idea = function(req,res){
+    idea.create({
+    description : req.body.ideadesc
+    },(err,idea)=>{
+        if(err){
+            res
+                .status(404)
+                .json(err);
+        }
+        else{
+            res.render('student/ideation/ideation');
+        }
+    });
+}
 
-// }
-
-// const Feed = function(req,res){
-
-// }
 //Buisenss Logic End
 
 
@@ -47,5 +52,5 @@ const Ideation = function(req,res){
 //REndering End
 module.exports = {
     Student,Feedback,FeedbackHostel,FeedbackSubject,Counselling,Ideation,
-    //Idea,Feed,Counsel
+    Idea
 };

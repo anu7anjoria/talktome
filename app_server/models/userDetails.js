@@ -36,4 +36,4 @@ const userDetailsSchema = new mongoose.Schema({
     }
 });
 
-mongoose.model('studentLogin',studentSchema);
+mongoose.model('userDetail',userDetailsSchema);

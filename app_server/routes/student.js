@@ -9,4 +9,6 @@ router.get('/feedback/feedbackhostel',ctrlStudent.FeedbackHostel);
 router.get('/feedback/feedbacksubject',ctrlStudent.FeedbackSubject);
 router.get('/ideation',ctrlStudent.Ideation);
 
+router.post('/ideation',ctrlStudent.Idea);
+
 module.exports = router;

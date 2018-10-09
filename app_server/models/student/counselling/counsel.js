@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const detailsCounselSchema = new mongoose.Schema({
     sid:{
-    type:Number;
-    required:true;
+    type:Number,
+    required:true
     },
     counselId:Number,
     type:String,
@@ -17,8 +17,8 @@ const counsellingSchema = new mongoose.Schema
 ({
 
    fid:{
-     type:Number;
-     required:true;
+     type:Number,
+     required:true
    },
    details:[detailsCounselSchema]
 });

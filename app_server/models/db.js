@@ -45,4 +45,5 @@ process.on('SIGTERM', () => {
 //Including various schemas
 
 require('./userSignup');
+require('./student/ideation/idea');
 

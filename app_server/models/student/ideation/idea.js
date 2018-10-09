@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const detailsIdeaSchema = new mongoose.Schema({
   sid:{
-    type:Number;
-    required:true;
+    type:Number,
+    //required:true
   },
   ideaId:Number,
   type:String,
@@ -15,8 +15,8 @@ const detailsIdeaSchema = new mongoose.Schema({
 const ideaSchema = new mongoose.Schema
 ({
    mid:{
-     type:Number;
-     required:true;
+     type:Number,
+     //required:true
    },
    details:[detailsIdeaSchema]
 });

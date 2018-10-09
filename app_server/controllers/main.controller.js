@@ -16,9 +16,9 @@ const Contact = function(req,res){
 
 const SignUp = function(req,res){
     user.create({
-        username:req.body.uname,
-        emailid :req.body.email,
-        password:req.body.psw
+        username : req.body.uname,
+        emailid  : req.body.email,
+        password : req.body.psw
     },(err,user)=>{
         if(err){
             res
@@ -33,7 +33,7 @@ const SignUp = function(req,res){
 }
 
 const Login = function(req,res){
-
+    
 }
 
 module.exports = {

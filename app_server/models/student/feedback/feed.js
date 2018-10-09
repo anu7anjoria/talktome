@@ -13,8 +13,8 @@ const facultySchema = new mongoose.Schema
 
 const detailsFeedSchema = new mongoose.Schema({
     sid:{
-    type:Number;
-    required:true;
+    type:Number,
+    required:true
      },
     feedId:Number,
     subjectId:Number,
@@ -23,12 +23,14 @@ const detailsFeedSchema = new mongoose.Schema({
     dateAssigned:Date,
     dateCompleted:Date
 });
+
+
 const feedSchema = new mongoose.Schema
 ({
    fid:
    {
-     type:Number;
-     required:true;
+     type:Number,
+     required:true
    },
    details:[detailsFeedSchema]
 });
