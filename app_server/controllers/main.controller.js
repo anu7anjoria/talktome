@@ -27,7 +27,7 @@ const SignUp = function(req,res){
         }
         else{
             res
-                .render('login',{title:'Login'});
+                .render('detail',{title:'Detail'});
         }
     });
 }
