@@ -1,0 +1,39 @@
+const mongoose = require('mongoose');
+const userDetailsSchema = new mongoose.Schema({
+   fname:{
+     type:String,
+     required:true
+   },
+   lname:{
+     type:String,
+     required:true
+   },
+   fid:{
+     type:Number,
+     required:true,
+     unique:true
+   },
+   dept:{
+     type:String,
+     required:true
+   },
+   designation:{
+     type:String,
+     required:true
+   },
+    emailid:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    password:{
+        type:String,
+        required:true
+    },
+    points:{
+      type:Number,
+      default:0
+    }
+});
+
+mongoose.model('studentLogin',studentSchema);
