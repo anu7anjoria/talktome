@@ -1,15 +1,11 @@
 const mongoose = require('mongoose');
 
 const detailsCounselSchema = new mongoose.Schema({
-    sid:{
-    type:Number,
-    required:true
-    },
-    counselId:Number,
-    type:String,
-    desc:String,
-    status:Boolean,
-    date:Date
+    counselId:{type:Number,required:true},
+    title:String,
+    body:String,
+    date: { type: Date, default: Date.now },
+    
 });
 
 

@@ -6,7 +6,7 @@ const detailsIdeaSchema = new mongoose.Schema({
   },
   ideaId:Number,
   type:String,
-  description:String,
+  description:{type:String,default:'Some description'},
   status:Boolean,
   date:Date,
   upvotes:Number
@@ -22,3 +22,4 @@ const ideaSchema = new mongoose.Schema
 });
 
 mongoose.model('idea',ideaSchema);
+mongoose.model('ideadetail',detailsIdeaSchema);

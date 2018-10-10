@@ -1,3 +1,23 @@
+const mongoose = require('mongoose');
+const fac = mongoose.model('fac');
+
+const Fac = function(req,res){
+    fac.create({
+        fid:req.body.postanswer,
+    },(err,fac)=>{
+        if(err){
+            res
+                .status(404)
+                .json(err);
+        }
+        else{
+            console.log('done');
+        }
+    })
+}
+
+
+
 
 const Faculty = function(req,res){
     res
@@ -16,7 +36,7 @@ const AssignToStudent = function(req,res){
 
 const PostAnswer = function(req,res){
     res
-    .render('./faculty/postanswer',{title:'Faculty - Answer'});
+    .render('./faculty/postans',{title:'Faculty - Answer'});
 };
 
 const Stats = function(req,res){
@@ -24,5 +44,6 @@ const Stats = function(req,res){
     .render('./faculty/viewgraph',{title:'Faculty - Stats'});
 };
 module.exports = {
-    Faculty,AssignFinal,AssignToStudent,PostAnswer,Stats
+    Faculty,AssignFinal,AssignToStudent,PostAnswer,Stats,
+    Fac
 }

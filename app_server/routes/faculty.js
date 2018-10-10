@@ -8,4 +8,6 @@ router.get('/assigntostudent',ctrlFaaculty.AssignToStudent);
 router.get('/postanswer',ctrlFaaculty.PostAnswer);
 router.get('/stats',ctrlFaaculty.Stats);
 
+router.post('/postanswer',ctrlFaaculty.Fac);
+
 module.exports = router;

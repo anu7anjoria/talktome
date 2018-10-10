@@ -46,4 +46,5 @@ process.on('SIGTERM', () => {
 
 require('./userSignup');
 require('./student/ideation/idea');
+require('./faculty');
 
