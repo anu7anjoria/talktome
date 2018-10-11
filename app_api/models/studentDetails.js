@@ -1,0 +1,41 @@
+const mongoose = require('mongoose');
+const studentSchema = new mongoose.Schema({
+   fname:{
+     type:String,
+     required:true
+   },
+   lname:{
+     type:String,
+     required:true
+   },
+   sid:{
+     type:Number,
+     required:true,
+     unique:true
+   },
+   phoneNo:
+   {
+     type:Number,
+     required:true,
+     unique:true
+   },
+   branch:{
+     type:String,
+     required:true
+   },
+   batch:{
+     type:Number,
+     required:true
+   },
+    emailid:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    password:{
+        type:String,
+        required:true
+    }
+});
+
+mongoose.model('studentLogin',studentSchema);

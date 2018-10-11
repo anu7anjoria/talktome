@@ -6,18 +6,9 @@ const Home = function(req,res){
     .render('index',{title:'Home'});
 };
 
-const About = function(req,res){
-
-};
-
-const Contact = function(req,res){
-
-};
-
 const SignUp = function(req,res){
     user.create({
-        username : req.body.uname,
-        emailid  : req.body.email,
+        email  : req.body.email,
         password : req.body.psw
     },(err,user)=>{
         if(err){
@@ -33,9 +24,17 @@ const SignUp = function(req,res){
 }
 
 const Login = function(req,res){
-    
-}
+    // user.findOne({email:'emal@gmail.com'
+    // }, (err, user)=>{
+    //     if(err){
+    //         console.log('error');
+    //     }
+    //     else{
+    //         console.log(">>>> " + user ); 
+    //     }
+    // });
+}   
 
 module.exports = {
-    SignUp,Home,Login,About,Contact
+    SignUp,Home,Login
 };

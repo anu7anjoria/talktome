@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 // const counsel = mongoose.model('counsel');
 // const feed = mongoose.model('feed'); 
 const idea = mongoose.model('idea');
-
+const question = mongoose.model('question');
 // //Buisness Logic Start
 
 const Idea = function(req,res){
-    idea.create({
+    idea.detailsIdeaSchema.create({
     description : req.body.ideadesc
     },(err,idea)=>{
         if(err){
@@ -19,7 +19,31 @@ const Idea = function(req,res){
         }
     });
 }
-
+const displayQuestion = function(req,res){
+    question.find({}, (err, question)=>{
+        if(err){
+            console.log('error');
+        }
+        else{
+            res.render('student/feedback/question',{"question":question});
+        }
+    });
+}
+const AskQuestion = function(req,res){
+    question.create({
+        title:req.body.questiontitle,
+        body:req.body.question
+    },(err,question)=>{
+        if(err){
+            res
+                .status(404)
+                .json(err);
+        }
+        else{
+            res.render('ask question succfully');
+        }
+    })
+}
 //Buisenss Logic End
 
 
@@ -49,8 +73,12 @@ const Ideation = function(req,res){
     res.
         render('./student/ideation/ideation',{title:'Student - Idea'});
 }
+const Question = function(req,res){
+    res.
+        render('./student/feedback/question',{title:'Student - Question'});
+}
 //REndering End
 module.exports = {
-    Student,Feedback,FeedbackHostel,FeedbackSubject,Counselling,Ideation,
-    Idea
+    Student,Feedback,FeedbackHostel,FeedbackSubject,Counselling,Ideation,Question,
+    Idea,AskQuestion,displayQuestion
 };

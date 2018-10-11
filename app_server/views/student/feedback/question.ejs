@@ -1,0 +1,16 @@
+    <><%- include('./dash') -%>
+
+<form method="POST" action="question">
+    <label for="questiontitle"></label>
+    <input type="text">
+    <label for="question"></label>
+    <textarea type="text" name='question'></textarea>
+    <button type="submit">Ask</button>
+</form>
+<ul>
+        <% for(var i=0; i<question.length; i++) {%>
+           <li><%= question[i].tilte %> : <%= question[i].body %></li>
+        <% } %>
+        </ul>
+<%- include('./footer') -%>
+

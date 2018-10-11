@@ -6,9 +6,12 @@ router.get('/',ctrlStudent.Student);
 router.get('/counselling',ctrlStudent.Counselling);
 router.get('/feedback',ctrlStudent.Feedback);
 router.get('/feedback/feedbackhostel',ctrlStudent.FeedbackHostel);
-router.get('/feedback/feedbacksubject',ctrlStudent.FeedbackSubject);
+router.get('/feedback/subject',ctrlStudent.FeedbackSubject);
+router.get('/feedback/question',ctrlStudent.Question);
+router.get('/feedback/Displayquestion',ctrlStudent.displayQuestion);
 router.get('/ideation',ctrlStudent.Ideation);
 
 router.post('/ideation',ctrlStudent.Idea);
+router.post('/feedback/question',ctrlStudent.AskQuestion);
 
 module.exports = router;
