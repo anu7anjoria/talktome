@@ -38,8 +38,9 @@ router.get('/faculty/assigntostudent',ctrlFaaculty.AssignToStudent);
 router.get('/faculty/postanswer',ctrlFaaculty.PostAnswer);
 router.get('/faculty/stats',ctrlFaaculty.Stats);
 
-//router.post('/faculty/postanswer',ctrlFaaculty.Fac);
 
+router.post('/faculty/postanswer',ctrlFaaculty.postAnswertoo);
+router.post('/faculty/assigntostudent',ctrlFaaculty.AssignPost);
 //Head Of Deoartment
 router.get('/hod',ctrlHod.Hod);
 router.get('/hod/assigntask',ctrlHod.AssignTask);

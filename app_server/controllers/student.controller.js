@@ -3,10 +3,7 @@ const user = mongoose.model('user');
 const idea = mongoose.model('idea');
 const feed = mongoose.model('feed');
 const Cousnel = mongoose.model('counselling');
-const sendJsonResponse = function(res, status, content) { 
-    res.status(status); 
-    res.json(content);
-};
+
 const SignUpCreate = function(req,res){
     user.create({
         email  : req.body.email,

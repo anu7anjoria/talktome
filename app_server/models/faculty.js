@@ -22,7 +22,8 @@ const facSchema = new mongoose.Schema({
     fid:Number,
     post_answer:[postAnswer],
     assign_to_stu:[assignStudent],
-    facultyPerformandce:Number
+    facultyPerformandce:Number,
+    classDetail:[extraClass]
 });
 
 mongoose.model('fac',facSchema);
