@@ -32,7 +32,7 @@ router.get('/counsellor/viewproblem',ctrlCounsellor.ViewProblem);
 router.get('/counsellor/writeback',ctrlCounsellor.WriteBack);
 
 //Faculty
-router.get('/faculty',ctrlFaaculty.Faculty);
+router.get('/faculty',ctrlFaaculty.DisplayQues);
 router.get('/faculty/assignfinal',ctrlFaaculty.AssignFinal);
 router.get('/faculty/assigntostudent',ctrlFaaculty.AssignToStudent);
 router.get('/faculty/postanswer',ctrlFaaculty.PostAnswer);
@@ -60,7 +60,7 @@ router.get('/moderator/mostupvoted',ctrlModerator.MostUpvoted);
 router.get('/moderator/response',ctrlModerator.Response);
 
 //Student
-router.get('/student',ctrlStudent.Student);
+router.get('/student',ctrlStudent.AnswerReadOne);
 router.get('/student/counselling',ctrlStudent.Counselling);
 router.get('/student/counselling/prcounsel',function(req,res){
     res.render('./student/counselling/tcounsel');
@@ -68,11 +68,14 @@ router.get('/student/counselling/prcounsel',function(req,res){
 router.get('/student/feedback',ctrlStudent.Feedback);
 router.get('/student/feedback/feedbackhostel',ctrlStudent.FeedbackHostel);
 router.get('/student/feedback/subject',ctrlStudent.FeedbackSubject);
+router.get('/student/feedback/subject/askquestion',ctrlStudent.AskQuestion);
+
 router.get('/student/ideation',ctrlStudent.Ideation);
 
-router.post('/student/ideation/ideation',ctrlStudent.Idea);
+router.post('/student/ideation',ctrlStudent.Idea);
 router.post('/student/feedback/subject',ctrlStudent.FeedbackSubjectPost);
 router.post('/student/counselling/prcounsel',ctrlStudent.CousnellingPost);
+router.post('/student/feedback/subject/askquestion',ctrlStudent.AskQuestionPost);
 
 
 // router.post('/student/ideation',ctrlStudent.Idea);

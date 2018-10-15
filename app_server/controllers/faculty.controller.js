@@ -1,7 +1,19 @@
 const mongoose = require('mongoose');
 const question = mongoose.model('question');
 const Fac = mongoose.model('fac');
+const feed = mongoose.model('feed');
+const ak = mongoose.model('askquestion');
 
+const DisplayQues = function(req,res){
+    ak.find(
+        {},function(err,ak){
+        if(err) {
+            console.log("There was a problem finding the ticket.");
+        } else {
+            res.render('./faculty/faculty',{ data:ak })       
+         }
+    })   
+}
 const postAnswertoo = function(req,res){
     question.create({
             title:req.body.titleanswer,
@@ -68,6 +80,6 @@ const Stats = function(req,res){
 
 module.exports = {
     Faculty,AssignFinal,AssignToStudent,PostAnswer,Stats,
-    postAnswertoo,AssignPost
+    postAnswertoo,AssignPost,DisplayQues
 
 }

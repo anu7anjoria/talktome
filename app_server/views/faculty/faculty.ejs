@@ -1,5 +1,17 @@
 <<%- include('./dash') -%>
 
+<table>
+        <tr>
+            <td>Question Title</td>
+            <td>Question Asked</td>
+        </tr>
+        <% for(var i=0; i < data.length; i++) { %>
+           <tr>
+             <td><%= data[i].title %></td>
+             <td><%= data[i].body %></td>
+           </tr>
+        <% } %>
+</table>
 
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">

@@ -1,7 +1,4 @@
 <%- include('./header-side-footer/dash') -%>
-
-
-
 <div class="page-wrapper">
     <div class="col">
         <div class="col-lg-3">
@@ -70,5 +67,19 @@
                 </div>
 </div>
 
+<table>
+        <tr>
+            <th>Title</th>
+            <th>Answer</th>
+            <th>Date</th>
+        </tr>
+        <% for(var i=0; i < data.length; i++) { %>
+           <tr>
+             <td><%= data[i].title %></td>
+             <td><%= data[i].body %></td>
+             <td><%= data[i].date %></td>
+           </tr>
+        <% } %>
+</table>
 
 <%- include('./header-side-footer/footer') -%>
