@@ -44,7 +44,15 @@ process.on('SIGTERM', () => {
 
 //Including various schemas
 
-require('./userSignup');
 require('./student/ideation/idea');
+require('./student/counselling/counsel');
+require('./student/feedback/feed');
 require('./faculty');
+require('./counsellor');
+require('./hod');
+require('./mod');
+require('./questions');
+require('./userSignup');
+require('./mod');
+require('./coc');
 

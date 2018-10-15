@@ -1,33 +1,27 @@
-//buisness logic
+const mongoose = require('mongoose');
+const Coc = mongoose.model('coc');
 
-//end buisness logic
-
-//rendering view
-const Coc = function(req,res){
-    res
-    .render('./coc/coc',{title:'COC'});
+const sendJsonResponse = function(res, status, content) { 
+    res.status(status); 
+    res.json(content);
 };
 
-const AssignTask = function(req,res){
-    res
-    .render('./coc/assigntask',{title:'COC- AssignTask'});
-};
+module.exports.AssignTaskCreate = function(req,res){
+    Coc.create({
+        give_Appointment:[{
+            Student:req.body.Student,
+            title:req.res.title,
+            body:req.res.body,
+            apdate:req.body.apdate
+        }]
+        }, function(err, Coc) { 
+        if (err) {
+        sendJsonResponse(res, 400, err);
+        } else {
+        sendJsonResponse(res, 201, Coc);
+        }
+        }); 
+    }
+    
 
-const FacultyDetail = function(req,res){
-    res
-    .render('./coc/facultydetails',{title:'COC - FacultyDetail'});
-};
 
-const MyTask = function(req,res){
-    res
-    .render('./coc/mytask',{title:'COC- My Task'});
-};
-
-const OpenForum = function(req,res){
-    res
-    .render('./coc/openforum',{title:'COC - OpenForum'});
-};
-//end rendering view
-module.exports = {
-    Coc,AssignTask,FacultyDetail,MyTask,OpenForum
-};

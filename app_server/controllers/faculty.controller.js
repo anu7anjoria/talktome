@@ -1,21 +1,26 @@
-const mongoose = require('mongoose');
-const fac = mongoose.model('fac');
-                                         
-
-const Fac = function(req,res){
-    fac.create({
-        fid:req.body.postanswer,
-    },(err,fac)=>{
-        if(err){
-            res
-                .status(404)
-                .json(err);
-        }
-        else{
-            console.log('done');
-        }
-    })
+const request = require('request');
+const apiOptions = {
+  server : 'http://localhost:3000'
+};
+if (process.env.NODE_ENV === 'production') {
+  apiOptions.server = 'https://pure-temple-67771.herokuapp.com';
 }
+
+
+
+
+
+//==============================================
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -45,6 +50,5 @@ const Stats = function(req,res){
     .render('./faculty/viewgraph',{title:'Faculty - Stats'});
 };
 module.exports = {
-    Faculty,AssignFinal,AssignToStudent,PostAnswer,Stats,
-    Fac
+    Faculty,AssignFinal,AssignToStudent,PostAnswer,Stats
 }

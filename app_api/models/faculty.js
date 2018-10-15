@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
 
+const extraClass = new mongoose.Schema({
+    dateOfClass:{ type: Date, default: Date},
+    numberOfStudent:Number,
+    place:{type:String,default:'Square one'}
+});
 const assignStudent = new mongoose.Schema({
     Student:String,
     studentID:Number,

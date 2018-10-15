@@ -1,29 +1,20 @@
-const Moderator = function(req,res){
-    res
-    .render('./moderator/moderator',{title:'Moderator'});
+const mongoose = require('mongoose');
+const Moderator = mongoose.model('moderator');
+const sendJsonResponse = function(res, status, content) { 
+    res.status(status); 
+    res.json(content);
 };
-
-const MostUpvoted = function(req,res){
-    res
-    .render('./moderator/mostupvoted_forward',{title:'Moderator - Most UpVoted'});
+module.exports.ReplyCreate = function(req,res){
+    Moderator.create({
+        Reply:[{
+            title:req.body.title,
+            body:req.body.body,
+        }]
+        }, function(err, Moderator) { 
+        if (err) {
+        sendJsonResponse(res, 400, err);
+        } else {
+        sendJsonResponse(res, 201, Moderator);
+        }
+        }); 
 };
-
-const MostRecent = function(req,res){
-    res
-    .render('./moderator/newlysubmitted',{title:'Moderator - Recent'});
-};
-const MostRecentReject = function(req,res){
-    res
-    .render('./moderator/newlysubmitted_reject',{title:'Moderator - Recent - Reject'});
-};
-const MostRecentApprove = function(req,res){
-    res
-    .render('./moderator/newlysubmitted_approve',{title:'Moderator - Recent - Approve'});
-};
-const Response = function(req,res){
-    res
-    .render('./moderator/response',{title:'Moderator - Response'});
-};
-module.exports = {
-    Moderator,MostRecent,MostRecentApprove,MostRecentReject,MostUpvoted,Response
-}

@@ -1,15 +1,26 @@
-const HostelIncharge = function(req,res){
-    res
-    .render('./hostel_incharge/hostelincharge',{title:'Hostel Incharge'});
+const mongoose = require('mongoose');
+const Feed = mongoose.model('feed');
+
+const sendJsonResponse = function(res, status, content) { 
+    res.status(status); 
+    res.json(content);
 };
-const MarkComplete = function(req,res){
-    res
-    .render('./hostel_incharge/markcomplete',{title:'Hostel Incharge - Mark Complete'});
-};
-const ViewProblem = function(req,res){
-    res
-    .render('./hostel_incharge/viewproblem',{title:'Hostel Incharge - View Problem'});
-};
-module.exports = {
-    HostelIncharge,MarkComplete,ViewProblem
+
+module.exports.HostelProblemReadAll = function(req,res){
+    Feed
+    .find({})
+    // .select('name reviews') 
+    .exec(function(err, Feed) {
+    if (!Feed) { 
+    sendJsonResponse(res, 404, { 
+    "message": "ideaId not found" 
+    }); 
+    return;
+    } else if (err) { 
+    sendJsonResponse(res, 404, err); 
+    return; 
+    }
+    sendJsonResponse(res, 200, Feed); 
+    });
+    
 }

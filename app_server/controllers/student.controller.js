@@ -1,53 +1,70 @@
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
 // const counsel = mongoose.model('counsel');
 // const feed = mongoose.model('feed'); 
-const idea = mongoose.model('idea');
-const question = mongoose.model('question');
-// //Buisness Logic Start
+// const idea = mongoose.model('idea');
+// const question = mongoose.model('question');
+//Buisness Logic Start
 
-const Idea = function(req,res){
-    idea.detailsIdeaSchema.create({
-    description : req.body.ideadesc
-    },(err,idea)=>{
-        if(err){
-            res
-                .status(404)
-                .json(err);
-        }
-        else{
-            res.render('student/ideation/ideation');
-        }
+const request = require('request');
+const apiOptions = {
+  server : 'http://localhost:3000'
+};
+if (process.env.NODE_ENV === 'production') {
+  apiOptions.server = '';
+}
+
+var renderHomepage = function(req, res){
+    res.render('contact', {
+    title: 'Loc8r - find a place to work with wifi',
     });
-}
-const displayQuestion = function(req,res){
-    question.find({}, (err, question)=>{
-        if(err){
-            console.log('error');
-        }
-        else{
-            res.render('student/feedback/question',{"question":question});
-        }
-    });
-}
-const AskQuestion = function(req,res){
-    question.create({
-        title:req.body.questiontitle,
-        body:req.body.question
-    },(err,question)=>{
-        if(err){
-            res
-                .status(404)
-                .json(err);
-        }
-        else{
-            res.render('ask question succfully');
-        }
-    })
-}
+   };
+   module.exports.homelist = function(req, res){
+    renderHomepage(req, res); 
+};
+// const Idea = function(req,res){
+
+// }
+
+// const displayQuestion = function(req,res){
+//     const path = '/api/student/feedback/question';
+//     const requestOptions = {
+//       url : apiOptions.server + path,
+//       method : 'GET',
+//       json : {},
+//       qs : {
+//         title:req.body.title,
+//         body:req.body.body,
+//         data:req.body.data
+//       }
+//     };
+//     request(
+//         requestOptions,
+//         (err, response, body) => {
+//           let data = body;
+//           if (response.statusCode === 200 && data.length) {
+//             for (let i = 0; i < data.length; i++) {
+//                 data[i].title;
+//                 data[i].body;
+//                 data[i].data;            }
+//           }
+//           _renderQuestionPage(req, res, data);
+//         }
+//       );
+// }
 //Buisenss Logic End
 
 
+
+
+
 //Rendering Start
+
+// const _renderQuestionPage = function(req, res, responseBody){
+//     res.render('/student/feedback/question', {
+//         title:'Here is some title',
+//         body:'here is body'
+//     });
+//   };    
 
 const Student = function(req,res){
     res.
@@ -78,7 +95,25 @@ const Question = function(req,res){
         render('./student/feedback/question',{title:'Student - Question'});
 }
 //REndering End
+
+var requestOptions = {
+    url : "http://localhost:3000/api/student/ideation",
+    method : "GET",
+    json : {},
+    qs : { 
+    offset : 20
+    }
+   }; 
+   request(requestOptions, function(err, response, body) {
+    if (err) { 
+    console.log(err);
+    } else if (response.statusCode === 200) { 
+    console.log(body); 
+    } else { 
+    console.log(response.statusCode); 
+    }
+   }); 
 module.exports = {
     Student,Feedback,FeedbackHostel,FeedbackSubject,Counselling,Ideation,Question,
-    Idea,AskQuestion,displayQuestion
+    renderHomepage
 };
