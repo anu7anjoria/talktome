@@ -12,6 +12,24 @@ module.exports.SignUpCreate = function(req,res){
             if(err){
                 res
                     .status(400)
+module.exports.SignUpCreate = function(req,res){
+    user.create({
+        email  : req.body.email,
+        password : req.body.password
+        },(err,user) =>{
+            if(err){
+                res
+                    .status(400)
+                    .json(err);
+            }else{
+                const data={user};
+                res
+                    .json(data);
+                    return;
+            }
+            
+        }); 
+}
                     .json(err);
             }else{
                 const data={user};
@@ -40,3 +58,5 @@ module.exports.LoginReaOne = function(req,res){
         sendJsonResponse(res, 200, user); 
         });
 }
+
+

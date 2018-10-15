@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Idea = mongoose.model('idea');
 const Feed = mongoose.model('feed');
 const Counsel = mongoose.model('counselling');
-
+const user = mongoose.model('user');
 const sendJsonResponse = function(res, status, content) { 
     res.status(status); 
     res.json(content);
@@ -14,12 +14,18 @@ module.exports.CreateIdea = function (req, res) {
         ideaId:req.body.ideaId,
         description:req.body.description,
         upvotes:req.body.upvotes
-        }, function(err, Idea) { 
-        if (err) {
-        sendJsonResponse(res, 400, err);
-        } else {
-        sendJsonResponse(res, 201, Idea);
-        }
+        }, (err,Idea) =>{
+            if(err){
+                res
+                    .status(400)
+                    .json(err);
+            }else{
+                const data={Idea};
+                res
+                    .json(data);
+                    return;
+            }
+            
         }); 
    }; 
 
@@ -54,13 +60,19 @@ module.exports.CreateFeedback = function(req,res){
         subjectid:'CSL4201',
         topics:req.body.topics,
         status:req.body.status,
-        }, function(err, Feed) { 
-        if (err) {
-        sendJsonResponse(res, 400, err);
-        } else {
-        sendJsonResponse(res, 201, Feed);
-        }
-    });
+        },(err,Feed) =>{
+            if(err){
+                res
+                    .status(400)
+                    .json(err);
+            }else{
+                const data={Feed};
+                res
+                    .json(data);
+                    return;
+            }
+            
+        });
 };
 
 module.exports.FeedbackReadOne = function(req,res){
@@ -126,3 +138,20 @@ module.exports.CounsellingReadOne = function(req,res){
         }); 
         } 
 };
+module.exports.DisplayUser = function(req,res){
+    user.findOne({
+        email:'ads@gmail.com'    
+    }),(err,user) =>{
+        if(err){
+            res
+                .status(400)
+                .json(err);
+        }else{
+            console.log('User Found');
+            res
+                .status(200)
+                .redirect('/student/ideation',{data:user});
+        }
+        
+    }
+}

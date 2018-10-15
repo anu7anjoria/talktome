@@ -15,6 +15,8 @@ router.get('/login',ctrlMain.LoginReaOne);
 //STUDENT=============================================================================================STUDENT
 router.post('/student/ideation',ctrlStudent.CreateIdea);
 router.get('/student/ideation/:ideaId',ctrlStudent.IdeaReadOne);
+router.get('/student/ideation',ctrlStudent.DisplayUser);
+
 
 router.post('/student/counselling',ctrlStudent.CreateCounselling);
 router.get('/student/counselling/:counselId',ctrlStudent.CounsellingReadOne);

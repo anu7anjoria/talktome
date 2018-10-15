@@ -1,71 +1,85 @@
-//const mongoose = require('mongoose');
-// const counsel = mongoose.model('counsel');
-// const feed = mongoose.model('feed'); 
-// const idea = mongoose.model('idea');
-// const question = mongoose.model('question');
-//Buisness Logic Start
-
-const request = require('request');
-const apiOptions = {
-  server : 'http://localhost:3000'
+const mongoose = require('mongoose');
+const user = mongoose.model('user');
+const idea = mongoose.model('idea');
+const feed = mongoose.model('feed');
+const Cousnel = mongoose.model('counselling');
+const sendJsonResponse = function(res, status, content) { 
+    res.status(status); 
+    res.json(content);
 };
-if (process.env.NODE_ENV === 'production') {
-  apiOptions.server = '';
+const SignUpCreate = function(req,res){
+    user.create({
+        email  : req.body.email,
+        password : req.body.password
+        },(err,user) =>{
+            if(err){
+                res
+                    .status(400)
+                    .json(err);
+            }else{
+                res
+                .redirect('/login',{title:'Login'});
+            }
+            
+        }); 
+}
+const Idea = function(req,res){
+    idea.create({
+        description:req.body.description
+        },(err,idea) =>{
+            if(err){
+                res
+                    .status(400)
+                    .json(err);
+            }else{
+                res
+                .render('student',{title:'Student Ideation'});
+            }
+            
+        }); 
+}
+const FeedbackSubjectPost= function(req,res){
+    feed.create({
+        subjectId:req.body.subjectId,
+        topics:req.body.topic
+        },(err,feed) =>{
+            if(err){
+                res
+                    .status(400)
+                    .json(err);
+            }else{
+                res
+                .render('student',{title:'Student Ideation'});
+            }
+            
+        }); 
+}
+const CousnellingPost = function(req,res){
+    Cousnel.create({
+        title:req.body.title,
+        body:req.body.Desc
+        },(err,Cousnel) =>{
+            if(err){
+                res
+                    .status(400)
+                    .json(err);
+            }else{
+                res
+                .render('student',{title:'Student Ideation'});
+            }
+            
+        }); 
 }
 
-var renderHomepage = function(req, res){
-    res.render('contact', {
-    title: 'Loc8r - find a place to work with wifi',
-    });
-   };
-   module.exports.homelist = function(req, res){
-    renderHomepage(req, res); 
-};
-// const Idea = function(req,res){
+const LoginReaOne =  function(req,res){
+//     user.create({
+//        email = req.body.email,
+//        password = req.body.password
+//    })
+}
+const Detail = function(req,res){
 
-// }
-
-// const displayQuestion = function(req,res){
-//     const path = '/api/student/feedback/question';
-//     const requestOptions = {
-//       url : apiOptions.server + path,
-//       method : 'GET',
-//       json : {},
-//       qs : {
-//         title:req.body.title,
-//         body:req.body.body,
-//         data:req.body.data
-//       }
-//     };
-//     request(
-//         requestOptions,
-//         (err, response, body) => {
-//           let data = body;
-//           if (response.statusCode === 200 && data.length) {
-//             for (let i = 0; i < data.length; i++) {
-//                 data[i].title;
-//                 data[i].body;
-//                 data[i].data;            }
-//           }
-//           _renderQuestionPage(req, res, data);
-//         }
-//       );
-// }
-//Buisenss Logic End
-
-
-
-
-
-//Rendering Start
-
-// const _renderQuestionPage = function(req, res, responseBody){
-//     res.render('/student/feedback/question', {
-//         title:'Here is some title',
-//         body:'here is body'
-//     });
-//   };    
-
+}
 const Student = function(req,res){
     res.
         render('./student/student',{title:'Student'});
@@ -94,26 +108,9 @@ const Question = function(req,res){
     res.
         render('./student/feedback/question',{title:'Student - Question'});
 }
-//REndering End
 
-var requestOptions = {
-    url : "http://localhost:3000/api/student/ideation",
-    method : "GET",
-    json : {},
-    qs : { 
-    offset : 20
-    }
-   }; 
-   request(requestOptions, function(err, response, body) {
-    if (err) { 
-    console.log(err);
-    } else if (response.statusCode === 200) { 
-    console.log(body); 
-    } else { 
-    console.log(response.statusCode); 
-    }
-   }); 
+
 module.exports = {
-    Student,Feedback,FeedbackHostel,FeedbackSubject,Counselling,Ideation,Question,
-    renderHomepage
-};
+    Student,Feedback,FeedbackHostel,FeedbackSubject,Counselling,Ideation,Question,Idea,
+    LoginReaOne,SignUpCreate,Detail,FeedbackSubjectPost,CousnellingPost
+}

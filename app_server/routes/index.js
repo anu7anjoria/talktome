@@ -11,6 +11,9 @@ var ctrlCounsellor = require('../controllers/counsellor.controller.js');
 var ctrlFaaculty = require('../controllers/faculty.controller.js');
 var mongoose =require('mongoose');
 var User = mongoose.model('user');
+var Idea = mongoose.model('idea');
+var Feed = mongoose.model('feed');
+var Counsel = mongoose.model('counselling');
 //Home page
 router.get('/', ctrlMain.Home);
 
@@ -58,45 +61,28 @@ router.get('/moderator/response',ctrlModerator.Response);
 //Student
 router.get('/student',ctrlStudent.Student);
 router.get('/student/counselling',ctrlStudent.Counselling);
+router.get('/student/counselling/prcounsel',function(req,res){
+    res.render('./student/counselling/tcounsel');
+});
 router.get('/student/feedback',ctrlStudent.Feedback);
 router.get('/student/feedback/feedbackhostel',ctrlStudent.FeedbackHostel);
 router.get('/student/feedback/subject',ctrlStudent.FeedbackSubject);
 router.get('/student/ideation',ctrlStudent.Ideation);
 
+router.post('/student/ideation/ideation',ctrlStudent.Idea);
+router.post('/student/feedback/subject',ctrlStudent.FeedbackSubjectPost);
+router.post('/student/counselling/prcounsel',ctrlStudent.CousnellingPost);
 
 
 // router.post('/student/ideation',ctrlStudent.Idea);
 // router.post('/student/feedback/question',ctrlStudent.AskQuestion);
-
-//Signup and Detail
-router.get('/signup',function(req,res){
-    res.render('signup',{title:'Sign Up'});
-});
-router.post('/signup',function(req,res){
-          var newUser = new User();
-          //  newUser.local.usertype= usertype;
-          newUser.email = req.body.email;
-          newUser.password = req.body.password
-          newUser.save();
-});
-router.get('/signup/detail',function(req,res){
-    res.render('detail',{title:'SignUp - Details'});
-});
-
-//router.post('/signup', ctrlMain.SignUp);
-
-//Login
+router.post('/login',ctrlStudent.LoginReaOne);
 router.get('/login',function(req,res){
-    res.render('login',{title:'login'});
-});
-
-//About And Contact
-router.get('/about',function(req,res){
-    res.render('aboutus',{title:'Aboutus'});
-});
-router.get('/contact',function(req,res){
-    res.render('contact',{title:'Contact'});
-});
-
-
+    res.render('login',{title:'Login'})
+})
+router.post('/signup',ctrlStudent.SignUpCreate);
+router.get('/signup',function(req,res){
+    res.render('signup',{title:'SignUp'})
+})
+router.get('/signup/detail',ctrlStudent.Detail);
 module.exports = router;
