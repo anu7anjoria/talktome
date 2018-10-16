@@ -1,132 +1,192 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title><%= title %></title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-    }
-    
-  .carousel-inner img {
-      width: 100%; 
-      margin: auto;
-      min-height:200px;
-  }
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>T2M</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
 
-  @media (max-width: 600px) {
-    .carousel-caption {
-      display: none; 
-    }
-  }
-  </style>
-</head>
-<body>
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="logo"><a href="index.html">T2M <span>Talk to me</span></a></div>
+				<a href="#menu">Menu</a>
+			</header>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Logo</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="/student">Student</a></li>
-        <li><a href="/faculty">Faculty</a></li>
-        <li><a href="/moderator">Moderator</a></li>
-        <li><a href="/coc">COC</a></li>
-        <li><a href="/hostelincharge">Hostel Incharge</a></li>
-        <li><a href="/counsellor">Counsellor</a></li>
-        <li><a href="/hod">Head of Department</a></li>
-        <li><a href="/aboutus">About</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-          <li><a href="/signup"><span class="glyphicon glyphicon-sign-up"></span> SignUp</a></li>
-        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+          <li><a href="/student">Student</a></li>
+          <li><a href="/faculty">Faculty</a></li>
+          <li><a href="/moderator">Moderator</a></li>
+          <li><a href="/coc">COC</a></li>
+          <li><a href="/hostelincharge">Hostel Incharge</a></li>
+          <li><a href="/counsellor">Counsellor</a></li>
+          <li><a href="/hod">Head of Department</a></li>
+          <li><a href="/login">Login</a></li>
+				</ul>
+			</nav>
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-    </ol>
+		<!-- Banner -->
+			<section class="banner full">
+				<article>
+					<img src="images/slide01.jpg" alt="" />
+					<div class="inner">
+						<header>
+							<p>Talk To Me.....</p>
+							<h2>T2M</h2>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="images/slide02.jpg" alt="" />
+					<div class="inner">
+						<header>
+							<p>Talk about studies ?</p>
+							<h2>Feedback</h2>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="images/slide03.jpg"  alt="" />
+					<div class="inner">
+						<header>
+							<p>Any Personal Problem ?</p>
+							<h2>Counselling</h2>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="images/slide04.jpg"  alt="" />
+					<div class="inner">
+						<header>
+							<p>Got Any IDEA ?</p>
+							<h2>Ideation</h2>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="images/slide05.jpg"  alt="" />
+					<div class="inner">
+						<header>
+							<p>Talk To Me.....</p>
+							<h2>T2M</h2>
+						</header>
+					</div>
+				</article>
+			</section>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <img src="https://placehold.it/1200x400?text=IMAGE" alt="Image">
-        <div class="carousel-caption">
-          <h3>Text Here</h3>
-          <p>Money Money.</p>
-        </div>      
-      </div>
+		<!-- One -->
+			<section id="one" class="wrapper style2">
+				<div class="inner">
+					<div class="grid-style">
 
-      <div class="item">
-        <img src="https://placehold.it/1200x400?text=Another Image Maybe" alt="Image">
-        <div class="carousel-caption">
-          <h3>More Text Here</h3>
-          <p>More Text Here</p>
-        </div>      
-      </div>
-    </div>
+						<div>
+							<div class="box">
+								<div class="image fit">
+									<img src="images/pic001.jpg" alt="" />
+								</div>
+								<div class="content">
+									<header class="align-center">
+										<p>For Any Queries?</p>
+										<h2>Contact Us</h2>
+									</header>
+									<p> For any trouble or any kind of feedback about our site ! </p>
+									<footer class="align-center">
+										<a href="/contact" class="button alt">Contact Us</a>
+									</footer>
+								</div>
+							</div>
+						</div>
 
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-</div>
-  
-<div class="container text-center">    
-  <h3>What We Do</h3><br>
-  <div class="row">
-    <div class="col-sm-4">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      <p>Current Project</p>
-    </div>
-    <div class="col-sm-4"> 
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      <p>Project 2</p>    
-    </div>
-    <div class="col-sm-4">
-      <div class="well">
-       <p>Some text..</p>
-      </div>
-      <div class="well">
-       <p>Some text..</p>
-      </div>
-    </div>
-  </div>
-</div><br>
+						<div>
+							<div class="box">
+								<div class="image fit">
+									<img src="images/pic002.jpg" alt="" />
+								</div>
+								<div class="content">
+									<header class="align-center">
+										<p>Know about us ?</p>
+										<h2>About Us</h2>
+									</header>
+									<p> You want to know about us click the icon below ! </p>
+									<footer class="align-center">
+										<a href="/aboutus" class="button alt">About Us</a>
+									</footer>
+								</div>
+							</div>
+						</div>
 
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
+					</div>
+				</div>
+			</section>
 
-</body>
+		<!-- Two -->
+			<section id="two" class="wrapper style3">
+				<div class="inner">
+					<header class="align-center">
+						<p>What's more on T2M ? </p>
+						<h2>GO DOWN TO KNOW</h2>
+					</header>
+				</div>
+			</section>
+
+		<!-- Three -->
+			<section id="three" class="wrapper style2">
+				<div class="inner">
+					<header class="align-center">
+						<p class="special">To Know More Select the options !</p>
+						<h2>Select What You Want !!</h2>
+					</header>
+					<div class="gallery">
+						<div>
+							<div class="image fit">
+								<a href="/signup"><img src="images/pic01.jpg" alt="" /></a>
+							</div>
+						</div>
+						<div>
+							<div class="image fit">
+								<a href="/login"><img src="images/pic02.jpg" alt="" /></a>
+							</div>
+						</div>
+						<div>
+							<div class="image fit">
+								<a href="/login"><img src="images/pic03.png" alt="" /></a>
+							</div>
+						</div>
+						<div>
+							<div class="image fit">
+								<a href="/login"><img src="images/pic04.jpg" alt="" /></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+
+						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+					</ul>
+				</div>
+				<div class="copyright">
+					&copy; All rights reserved by T2M.
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>

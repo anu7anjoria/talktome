@@ -1,13 +1,13 @@
 var mongoose = require('mongoose');
-var dbURI = 'mongodb://t2m:t2mt2m@ds259305.mlab.com:59305/anu7anjoria';
+//var dbURI = 'mongodb://t2m:t2mt2m@ds259305.mlab.com:59305/anu7anjoria';
 //let dbURI = 'mongodb://localhost:27017/chitkara';
 if (process.env.NODE_ENV === 'production') {
   dbURI = process.env.MONGODB_URI;
 }
-mongoose.connect(dbURI);
+mongoose.connect('mongodb://t2m:t2mt2m@ds259305.mlab.com:59305/anu7anjoria');
 
 mongoose.connection.on('connected', () => {
-  console.log(`Mongoose connected to ${dbURI}`);
+  console.log(`Mongoose connected to ${'mongodb://t2m:t2mt2m@ds259305.mlab.com:59305/anu7anjoria'}`);
 });
 mongoose.connection.on('error', err => {
   console.log('Mongoose connection error:', err);
