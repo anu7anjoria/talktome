@@ -1,7 +1,21 @@
 <<%- include('./dash') -%>
+<div class="content">
+        <!-- Card -->
+        <article class="card card-cascade narrower">
+          <!-- Card heading -->
+          <section class="view gradient-card-header blue-gradient narrower py-3 mb-4 d-flex justify-content-center align-items-center">
+            <span class="white-text mx-3">Student Grade Details - Semester 4</span>
+          </section>
 
-<form method="POST">
-    <label for="cdate"></label><br>
+          <!-- Card content -->
+          <section class="px-4">
+            <!-- Table -->
+            <section class="table-wrapper">
+              <section class="card">
+                
+            <center><form method="POST">
+                <label for="cdate"></label><br>
+                <h5>Date</h5>
     <input type="date" name="cdate"><br>
 
     <label for="nos"></label><br>
@@ -12,154 +26,76 @@
     <h5>Venue</h5>
     <input type="text" name="venue">
     <button type="submit">OK</button>
-</form>
+</form></center>
 
-<h2>Assign Tasks To Student</h2>
+</section>
+</section>
 
-<button class="accordion">Open Forum</button>
 
-<div class="panel">
-  <div class="card">
-      <div class="card-body">
-        <h5>Open Forum</h5>
+</article>
 
-        <div></br></br></br>
+<article class="card card-cascade wider">
+          <section class="view gradient-card-header aqua-gradient overlay d-flex align-items-center justify-content-center pt-2 pb-2">
+            
+            <h4 class="card-header">Questions Forum</h4>
+          </section>
+
+          <section class="card-body">
+            <section class="card-deck">
+              <section class="card">
+                <section class="view overlay p-3 text-center">
+                  <section class="card">
+                <section class="view overlay p-3 text-center">
+                  <h6 class="red-text darken-4">
+                    
+                  </h6>
+                  <p class="card-text">Data Structures</p>
+                  <a class="btn btn-danger" target="_blank">What Are the advantages of usinng trees?</a>
+                </section>
+              </section>
           <form>
             <h6>Answer Question</h6>
-          <textarea rows="2" cols="100">
+          <textarea rows="2" cols="50">
 
           </textarea>
         </form>
           <button>Post</button>
+          
+            </section>
+          </section>
 
-      </div>
-  </div>
-</div>
-</div>
+          <section class="card-body">
+            <section class="card-deck">
+              <section class="card">
+                <section class="view overlay p-3 text-center">
+                  <section class="card">
+                <section class="view overlay p-3 text-center">
+                  <h6 class="red-text darken-4">
+                    
+                  </h6>
+                  <p class="card-text">Data Structures</p>
+                  <a class="btn btn-danger" target="_blank">What Are the advantages of usinng trees?</a>
+                </section>
+              </section>
+          <form>
+            <h6>Answer Question</h6>
+          <textarea rows="2" cols="50">
 
-<button class="accordion">HOD Assigned Tasks</button>
-<div class="panel">
-  <div class="card">
-      <div class="card-body">
-
-          <div class="table-responsive m-t-40">
-              <table id="example" class="table display table-bordered table-striped">
-                  <thead>
-                      <tr>
-                          <th>Task Name</th>
-                          <th>Topic/Subtopic</th>
-                          <th></th>
-                          <th>Questions UnAnswered</th>
-                          <th>Open Forum Questions</th>
-                          <th>Points Earned</th>
-                          <th></th>
-                      </tr>
-                  </thead>
-                  <tfoot>
-                      <tr>
-                        <th>Faculty Name</th>
-                        <th>Class Asigned</th>
-                        <th>Questions Answered</th>
-                        <th>Questions UnAnswered</th>
-                        <th>Open Forum Questions</th>
-                        <th>Points Earned</th>
-                        <th></th>
-                      </tr>
-                  </tfoot>
-                  <tbody>
-                      <tr>
-                          <td>Mr.Singh</td>
-                          <td>FullStack 1</td>
-                          <td>4</td>
-                          <td>1</td>
-                          <td>3</td>
-                          <td>7</td>
-                          <td><button>Contact</button></td>
-
-                      </tr>
-                      <tr>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-
-                  </tbody>
-              </table>
-          </div>
-      </div>
-  </div>
-
+          </textarea>
+        </form>
+          <button>Post</button>
+          
+            </section>
+          </section>
+        </article>
 </div>
 
 
-<button class="accordion">To-Do List</button>
-<div class="panel">
-  <div class="card">
-      <div class="card-body">
 
 
-      </div>
-  </div>
-
-</div>
-
-<script>
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
-        }
-    });
-}
-</script>
 
 
+
+  
 
 <%- include('./footer') -%>

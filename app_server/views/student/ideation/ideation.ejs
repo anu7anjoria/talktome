@@ -1,9 +1,150 @@
 <%- include('./dash') -%>
+<div class="content">
 
-<form method="POST">
-    <h5>Enter yout Idea</h5>
-    <textarea type="text" name="description"></textarea>
-    <button type="submit">Submit</button>
-</form>
+    <!-- First subject card -->
+    <article class="card card-cascade wider">
+      <section class="view gradient-card-header purple-gradient overlay d-flex align-items-center justify-content-center pt-2 pb-2">
+        <img src="" class="rounded-circle" alt="" height="60px" width="60px">
+        <h4 class="card-header">Ideation Portal</h4>
+      </section>
+
+      <section class="card-body">
+        <!-- First card deck -->
+        <section class="card-deck">
+          <section class="card">
+		  <div class="card-body p-b-0">
+               
+               <!-- Nav tabs -->
+               <ul class="nav nav-tabs customtab" role="tablist">
+                   <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home2" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Add</span></a> </li>
+                   <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile2" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Recent Ideas</span></a> </li>
+                   <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#messages2" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Top Ideas</span></a> </li>
+               </ul>
+               <!-- Tab panes -->
+               <div class="tab-content" width="300px">
+                   <div class="tab-pane active" id="home2" role="tabpanel">
+                       <div class="p-20">
+                           
+                               
+                                   
+                                       <div class="card-body">
+                                           <h4 class="card-title">Your Idea</h4>
+                                           <h6 class="card-subtitle"></h6>
+                                           <form method="POST">
+                                               <div class="form-group">
+                                                   <textarea class="textarea_editor form-control" rows="15" placeholder="Enter text ..." style="height:450px" type="text" name="description"></textarea>
+                                               </div>
+                                           </form>
+                                           <button type="button" class="btn btn-dark btn-outline btn-rounded m-b-10 m-l-5">Cancel</button>
+                                           <button type="submit" class="btn btn-info btn-outline btn-rounded m-b-10 m-l-5">Post</button>
+
+                                       </div>
+                                  
+                               
+                           
+                       </div>
+                   </div>
+                   <div class="tab-pane  p-20" id="profile2" role="tabpanel">
+                      
+                        <div class="p-20">
+                
+
+                           
+                           <div class="card-body">
+                               <div class="table-responsive">
+                                   <table class="table table-striped">
+                                       <thead>
+                                           <tr>
+                                               <th>#</th>
+                                               <th>Idea</th>
+                                               <th>Status</th>
+                                               <th>Date</th>
+                                               <th>Votes</th>
+
+                                           </tr>
+                                       </thead>
+                                       <tbody>
+                                           <tr>
+                                               <th scope="row">1</th>
+                                               <td>Kolor Tea Shirt For Man</td>
+                                               <td><span class="badge badge-primary">Processing</span></td>
+                                               <td>January 22</td>
+                                               <td class="color-primary">56</td>
+                                           </tr>
+                                           <tr>
+                                               <th scope="row">2</th>
+                                               <td>Kolor Tea Shirt For Women</td>
+                                               <td><span class="badge badge-success">Pass</span></td>
+                                               <td>January 30</td>
+                                               <td class="color-success">32</td>
+                                           </tr>
+                                           <tr>
+                                               <th scope="row">3</th>
+                                               <td>Blue Backpack For Baby</td>
+                                               <td><span class="badge badge-danger">Declined</span></td>
+                                               <td>January 25</td>
+                                               <td class="color-danger">0</td>
+                                           </tr>
+                                       </tbody>
+                                   </table>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+
+                   <div class="tab-pane p-20" id="messages2" role="tabpanel">
+                       
+                      <div class="p-20">
+                         
+                           <div class="card-body">
+                               <div class="table-responsive">
+                                   <table class="table table-striped">
+                                       <thead>
+                                           <tr>
+                                               <th>#</th>
+                                               <th>Idea</th>
+                                               <th>Owner</th>
+                                               <th>Votes</th>
+                                               <th>UpVote</th>
+                                           </tr>
+                                       </thead>
+                                       <tbody>
+                                           <tr>
+                                               <th scope="row">1</th>
+                                               <td>Kolor Tea Shirt For Man</td>
+                                               <td>Akhil Arora</td>
+                                               
+                                               <td class="color-primary">200</td>
+                                               <td></td>
+                                           </tr>
+                                           <tr>
+                                               <th scope="row">2</th>
+                                               <td>Kolor Tea Shirt For Women</td>
+                                               <td>Divyanshu Singh</td>
+                                               
+                                               <td class="color-success">32</td>
+                                               <td></td>
+                                           </tr>
+                                           <tr>
+                                               <th scope="row">3</th>
+                                               <td>Blue Backpack For Baby</td>
+                                               <td>Dr. M K Kapoor</td>
+                                               
+                                               <td class="color-danger">5</td>
+                                               <td></td>
+                                           </tr>
+                                       </tbody>
+                                   </table>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+		   </section>
+		   </article>
+		   </div>
+
 <%- include('./footer') -%>
+
 

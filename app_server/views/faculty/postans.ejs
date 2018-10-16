@@ -1,10 +1,31 @@
 <%- include('./dash') -%>
-<form method="POST" action="postanswer">
+
+
+
+
+<div class="content">
+        <!-- Card -->
+        <article class="card card-cascade narrower">
+          <!-- Card heading -->
+          <section class="view gradient-card-header blue-gradient narrower py-3 mb-4 d-flex justify-content-center align-items-center">
+            <span class="white-text mx-3">Student Grade Details - Semester 4</span>
+          </section>
+
+          <!-- Card content -->
+          <section class="px-4">
+            <!-- Table -->
+            <section class="table-wrapper">
+            <form method="POST" action="postanswer">
 <label for="titleanswer"></label>
 <h5>Enter title here</h5><input type="text" name="titleanswer"><br>
 <h5>Enter Answer Here</h5>
 <label for="postanswer"></label>
-<textarea name="postanswer"></textarea><br>
-<button type="submit">Post</button>
+<textarea name="postanswer" cols="50"></textarea><br>
+<center><button type="submit">Post</button></center>
 </form>
+            
+        </section>
+        </section>
+        </article>
+    </div>
 <%- include('./footer') -%>

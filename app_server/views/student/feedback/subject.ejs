@@ -1,22 +1,31 @@
 <%- include('./dash') -%>
 
-<form method="POST" action="subject">
-    <h5>Enter Subject Id</h5><br><label for="subjectId"></label>
-    <input name="subjectId" type="text">
-    <h5>Enter Topic Name</h5><label for="topic"></label>
-    <input name="topic" type="text">
-    <button type="submit">Ask</button>
-</form>
-<div class="row">
-    <div class="col-lg-4">
-        <div class="card">
-            <div class="card-body">
+
+<div class="content">
+        <!-- Card -->
+        <article class="card card-cascade narrower">
+          <!-- Card heading -->
+          <section class="view gradient-card-header purple-gradient narrower py-3 mb-4 d-flex justify-content-center align-items-center">
+            <span class="white-text mx-3">Student Grade Details - Semester 1</span>
+          </section>
+
+          <!-- Card content -->
+          <section class="px-4">
+            
+            <section class="table-wrapper">
                 <h4 class="card-title">Subjects</h4>
                 <div class="card-content">
                     <div class="nestable">
                         <div class="dd" id="nestable">
                             <ol class="dd-list">
                               <li class="dd-item" data-id="2">
+                              <form method="POST" action="subject">
+    <h5>Enter Subject Id</h5><br><label for="subjectId"></label>
+    <input name="subjectId" type="text">
+    <h5>Enter Topic Name</h5><label for="topic"></label>
+    <input name="topic" type="text">
+    <button type="submit">Ask</button>
+</form>
                                   <div class="dd-handle">Data Structures</div>
                                   <ol class="dd-list">
                                     <li class="dd-item" data-id="5">
@@ -121,5 +130,10 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    </section>
+    </section>
+    </article>
     </div>
     <%- include('./footer') -%>

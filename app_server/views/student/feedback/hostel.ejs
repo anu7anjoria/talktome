@@ -5,36 +5,91 @@
     <article class="card card-cascade wider">
       <section class="view gradient-card-header purple-gradient overlay d-flex align-items-center justify-content-center pt-2 pb-2">
         <img src="" class="rounded-circle" alt="" height="60px" width="60px">
-        <h4 class="card-header">Problems</h4>
+        <h4 class="card-header">Hostel Feedback</h4>
       </section>
 
       <section class="card-body">
         <!-- First card deck -->
         <section class="card-deck">
           <section class="card">
-            <section class="view overlay p-3 text-center">
-              <h6 class="indigo-text darken-4">
-                <i class="fas fa-sticky-note"></i>
-                Hostel
-              </h6>
-              <p class="card-text">Issues regarding hostel</p>
-              <a class="btn btn-indigo" role="button" target="_blank">Write</a>
-            </section>
-          </section>
-          <section class="card">
-            <section class="view overlay p-3 text-center">
-              <h6 class="indigo-text darken-4">
-                <i class="fas fa-sticky-note"></i>
-                Counseling
-              </h6>
-              <p class="card-text">Counseling by specialist</p>
-              <a class="btn btn-indigo" role="button" target="_blank">Write</a>
-            </section>
-          </section>
-        </section>
-      </section>
-    </article>
-</div>
+      <div class="card-body p-b-0">
+               
+                <div class="card-body">
+                      <p>Click on the buttons inside the tabbed menu:</p>
+
+                      <div class="tab">
+                        <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Mess</button>
+                        <button class="tablinks" onclick="openCity(event, 'Paris')">Room</button>
+                        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Others</button>
+                      </div>
+
+                      <div id="London" class="tabcontent">
+                        
+                        <form method="POST">
+                                               <div class="form-group">
+                                                   <textarea class="textarea_editor form-control" rows="15" placeholder="Enter text ..." style="height:450px" type="text" name="description"></textarea>
+                                               </div>
+                        </form>
+                        <button type="button" class="btn btn-dark btn-outline btn-rounded m-b-10 m-l-5">Cancel</button>
+                                           <button type="submit" class="btn btn-info btn-outline btn-rounded m-b-10 m-l-5">Post</button>
+                        
+                      </div>
+
+                      <div id="Paris" class="tabcontent">
+                        <h3>Room</h3>
+                        <form method="POST">
+                                               <div class="form-group">
+                                                   Room No.:<input type="text"></input></br>
+                                                   Enter Feedback:<textarea class="textarea_editor form-control" rows="15" placeholder="Enter text ..." style="height:450px" type="text" name="description"></textarea>
+                                               </div>
+                        </form>
+                        <button type="button" class="btn btn-dark btn-outline btn-rounded m-b-10 m-l-5">Cancel</button>
+                                           <button type="submit" class="btn btn-info btn-outline btn-rounded m-b-10 m-l-5">Post</button>
+                        
+                        
+                      </div>
+
+                      <div id="Tokyo" class="tabcontent">
+                        <h3>Others</h3>
+                        <form method="POST">
+                                               <div class="form-group">
+                                                Type of Problem.:<input type="text"></input></br>
+                                                   Enter Feedback:
+                                                   <textarea class="textarea_editor form-control" rows="15" placeholder="Enter text ..." style="height:450px" type="text" name="description"></textarea>
+                                               </div>
+                        </form>
+                        <button type="button" class="btn btn-dark btn-outline btn-rounded m-b-10 m-l-5">Cancel</button>
+                                           <button type="submit" class="btn btn-info btn-outline btn-rounded m-b-10 m-l-5">Post</button>
+                        
+                        
+                      </div>
+
+                      <script>
+                      function openCity(evt, cityName) {
+                          var i, tabcontent, tablinks;
+                          tabcontent = document.getElementsByClassName("tabcontent");
+                          for (i = 0; i < tabcontent.length; i++) {
+                              tabcontent[i].style.display = "none";
+                          }
+                          tablinks = document.getElementsByClassName("tablinks");
+                          for (i = 0; i < tablinks.length; i++) {
+                              tablinks[i].className = tablinks[i].className.replace(" active", "");
+                          }
+                          document.getElementById(cityName).style.display = "block";
+                          evt.currentTarget.className += " active";
+                      }
+
+                      // Get the element with id="defaultOpen" and click on it
+                      document.getElementById("defaultOpen").click();
+                      </script>
+                    </div>
+               </div>
+           </div>
+       </section>
+       </section>
+       </article>
+       </div>
 
 <%- include('./footer') -%>
+
 
