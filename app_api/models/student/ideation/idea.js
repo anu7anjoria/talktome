@@ -18,7 +18,7 @@ const ideaSchema = new mongoose.Schema
      type:Number,
      //required:true
    },
-   description:{type:String,default:'Some description'},
+   description:{type:String},
    status:Boolean,
    date:{type:Date,default:Date.now},
    upvotes:{type:Number,default:0}

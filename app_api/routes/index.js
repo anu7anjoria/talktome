@@ -20,8 +20,9 @@ router.get('/student/ideation/:ideaId',ctrlStudent.IdeaReadOne);
 router.get('/student/ideation',ctrlStudent.DisplayUser);
 
 
-router.post('/student/counselling',ctrlStudent.CreateCounselling);
+//router.post('/student/counselling',ctrlStudent.CreateCounselling);
 router.get('/student/counselling/:counselId',ctrlStudent.CounsellingReadOne);
+router.post('/student/counselling/prcounsel',ctrlStudent.CousnellingPost);
 
 //router.post('/student/feedback',ctrlStudent.CreateFeedback);
 router.get('/student/feedback/:feedId',ctrlStudent.FeedbackReadOne);

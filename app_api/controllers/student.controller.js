@@ -12,9 +12,7 @@ const sendJsonResponse = function(res, status, content) {
 //IDEA=================================================================================================IDEA
 module.exports.CreateIdea = function (req, res) {
     Idea.create({
-        ideaId:req.body.ideaId,
         description:req.body.description,
-        upvotes:req.body.upvotes
         },function(err, Idea) { 
         }, (err,Idea) =>{
             if(err){
@@ -60,8 +58,8 @@ module.exports.IdeaReadOne = function(req,res){
 module.exports.AskQuestionPost = function(req,res){
     question.create({
         subjectId:req.body.subjectId,
-        title:req.body.topic,
-        body:req.body.description,
+        title:req.body.title,
+        description:req.body.description,
         },(err,question) =>{
             if(err){
                 res
@@ -103,18 +101,23 @@ module.exports.FeedbackReadOne = function(req,res){
 
 //COUNSELLING======================================================================================COUNSELLING
 
-module.exports.CreateCounselling = function(req,res){
+module.exports.CousnellingPost = function(req,res){
     Counsel.create({
+        counselId:req.body.counselId,
         title:req.body.title,
-        body:req.body.body,
-        counselId:234
-        }, function(err, Counsel) { 
-        if (err) {
-        sendJsonResponse(res, 400, err);
-        } else {
-        sendJsonResponse(res, 201, Counsel);
-        }
-    });
+        description:req.body.description,
+        }, (err,Counsel) =>{
+            if(err){
+                res
+                    .status(400)
+                    .json(err);
+            }else{
+                const data={Counsel};
+                res
+                    .json(data);
+                    return;
+            }
+        });
 };
 
 module.exports.CounsellingReadOne = function(req,res){
@@ -140,6 +143,7 @@ module.exports.CounsellingReadOne = function(req,res){
         }); 
         } 
 };
+
 module.exports.DisplayUser = function(req,res){
     user.findOne({
         email:'ads@gmail.com'    

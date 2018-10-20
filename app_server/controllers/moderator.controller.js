@@ -1,3 +1,15 @@
+const mongoose = require('mongoose');
+const Idea = mongoose.model('idea');
+const DisplayIdea = function(req,res){
+    Idea.find(
+        {},function(err,Idea){
+        if(err) {
+            console.log("There was a problem finding the ticket.");
+        } else {
+            res.render('./moderator/moderator',{ data:Idea })       
+         }
+    })   
+}
 const Moderator = function(req,res){
     res
     .render('./moderator/moderator',{title:'Moderator'});
@@ -25,5 +37,5 @@ const Response = function(req,res){
     .render('./moderator/response',{title:'Moderator - Response'});
 };
 module.exports = {
-    Moderator,MostRecent,MostRecentApprove,MostRecentReject,MostUpvoted,Response
+    Moderator,MostRecent,MostRecentApprove,MostRecentReject,MostUpvoted,Response,DisplayIdea
 }

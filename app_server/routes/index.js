@@ -52,7 +52,7 @@ router.get('/hostelincharge/markcomplete',ctrlHostelIncharge.MarkComplete);
 router.get('/hostelincharge/viewproblem',ctrlHostelIncharge.ViewProblem);
 
 //Moderator
-router.get('/moderator',ctrlModerator.Moderator);
+router.get('/moderator',ctrlModerator.DisplayIdea);
 router.get('/moderator/mostrecent',ctrlModerator.MostRecent);
 router.get('/moderator/mostrecentapprove',ctrlModerator.MostRecentApprove);
 router.get('/moderator/mostrecentreject',ctrlModerator.MostRecentReject);
@@ -68,7 +68,6 @@ router.get('/student/counselling/prcounsel',function(req,res){
 router.get('/student/feedback',ctrlStudent.Feedback);
 router.get('/student/feedback/feedbackhostel',ctrlStudent.FeedbackHostel);
 router.get('/student/feedback/subject',ctrlStudent.FeedbackSubject);
-router.get('/student/feedback/subject/askquestion',ctrlStudent.AskQuestion);
 
 router.get('/student/ideation',ctrlStudent.Ideation);
 
@@ -76,6 +75,7 @@ router.post('/student/ideation',ctrlStudent.Idea);
 router.post('/student/feedback/subject',ctrlStudent.FeedbackSubjectPost);
 router.post('/student/counselling/prcounsel',ctrlStudent.CousnellingPost);
 router.post('/student/feedback/subject/askquestion',ctrlStudent.AskQuestionPost);
+router.get('/student/feedback/subject/askquestion',ctrlStudent.AskQuestion);
 
 
 // router.post('/student/ideation',ctrlStudent.Idea);
@@ -83,7 +83,12 @@ router.post('/student/feedback/subject/askquestion',ctrlStudent.AskQuestionPost)
 router.post('/login',ctrlMain.LoginReaOne);
 router.get('/login',function(req,res){
     res.render('login',{title:'Login'})
-})
+});
+
+router.get('/login-faculty',function(req,res){
+    res.render('login-faculty',{title:'Login | Faculty'})
+});
+
 router.post('/signup',ctrlMain.SignUpCreate);
 router.get('/signup',function(req,res){
     res.render('signup',{title:'SignUp'})

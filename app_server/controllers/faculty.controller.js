@@ -9,8 +9,7 @@ const DisplayQues = function(req,res){
         if(err) {
             console.log("There was a problem finding the ticket.");
         } else {
-            res.render('./faculty/faculty',{ data:question
-             })       
+            res.render('./faculty/faculty',{ data:question })       
          }
     })   
 }

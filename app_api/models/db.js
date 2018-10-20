@@ -47,6 +47,7 @@ process.on('SIGTERM', () => {
 require('./student/ideation/idea');
 require('./student/counselling/counsel');
 require('./student/feedback/feed');
+require('./student/cho');
 require('./faculty');
 require('./counsellor');
 require('./hod');

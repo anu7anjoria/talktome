@@ -1,3 +1,9 @@
+const mongoose = require('mongoose');
+const user = mongoose.model('user');
+const idea = mongoose.model('idea');
+const feed = mongoose.model('feed');
+const Cousnel = mongoose.model('counselling');
+const question = mongoose.model('question');
 const request = require('request');
 const apiOptions = {
   server : 'http://localhost:3000'
@@ -5,14 +11,6 @@ const apiOptions = {
 if (process.env.NODE_ENV === 'production') {
   apiOptions.server = '';
 }
-
-const mongoose = require('mongoose');
-const user = mongoose.model('user');
-const idea = mongoose.model('idea');
-const feed = mongoose.model('feed');
-const Cousnel = mongoose.model('counselling');
-const question = mongoose.model('question');
-
 const AnswerReadOne = function(req,res){
     question.find(
         {},function(err,question){
@@ -30,9 +28,9 @@ const AskQuestionPost = function(req,res){
       url : apiOptions.server + path,
       method : 'POST',
       json : {
-        subjectId:req.body.subjectId,
-        title:req.body.topic,
-        body:req.body.description,
+        subjectId:req.body.qsubjectId,
+        title:req.body.qtitle,
+        description:req.body.qdescription,
       },
       qs : {}
     };
@@ -46,26 +44,36 @@ const AskQuestionPost = function(req,res){
                     .json(err);
             }else{
                 res
-                    .render('./stduent/feedback',{title:'Student | Deedback'});
+                    .render('./student/feedback/feedback',{title:'Student | Deedback'});
             }
         }
       );
 }
 
 const Idea = function(req,res){
-    idea.create({
-        description:req.body.description
-        },(err,idea) =>{
+    const path = '/api/student/ideation';
+    const requestOption = {
+      url : apiOptions.server + path,
+      method : 'POST',
+      json : {
+        description:req.body.idescription,
+      },
+      qs : {}
+    };
+    request(
+        requestOption,
+        (err,response,body)=>{
+            let data=body;
             if(err){
                 res
                     .status(400)
                     .json(err);
             }else{
                 res
-                .render('./student/ideation/ideation',{title:'Student Ideation'});
+                    .render('./student/feedback/feedback',{title:'Student | Deedback'});
             }
-            
-        }); 
+        }
+      );
 }
 const FeedbackSubjectPost= function(req,res){
     feed.create({
@@ -84,20 +92,31 @@ const FeedbackSubjectPost= function(req,res){
         }); 
 }
 const CousnellingPost = function(req,res){
-    Cousnel.create({
-        title:req.body.title,
-        body:req.body.Desc
-        },(err,Cousnel) =>{
+    const path = '/api/student/counselling/prcounsel';
+    const requestOption = {
+      url : apiOptions.server + path,
+      method : 'POST',
+      json : {
+          counselId:req.body.ccounselId,
+          title:req.body.ctitle,
+          description:req.body.cdescription,
+      },
+      qs : {}
+    };
+    request(
+        requestOption,
+        (err,response,body)=>{
+            let data=body;
             if(err){
                 res
                     .status(400)
                     .json(err);
             }else{
                 res
-                .render('./student/feedback/askquestion',{title:'Student Ideation'});
+                    .render('./student/feedback/feedback',{title:'Student | Counselling'});
             }
-            
-        }); 
+        }
+      );
 }
 
 
