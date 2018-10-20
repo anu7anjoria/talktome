@@ -35,6 +35,7 @@ const feedSchema = new mongoose.Schema
    feedId:Number,
    subjectId:String,
    topics:["ds","adbms","java"],
+   body:{type:String},
    status:{type:Boolean,default:false},
    dateAssigned:{type:Date,default:Date.now},
    dateCompleted:Date

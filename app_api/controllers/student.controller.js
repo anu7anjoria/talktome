@@ -3,6 +3,7 @@ const Idea = mongoose.model('idea');
 const Feed = mongoose.model('feed');
 const Counsel = mongoose.model('counselling');
 const user = mongoose.model('user');
+const question = mongoose.model('question');
 const sendJsonResponse = function(res, status, content) { 
     res.status(status); 
     res.json(content);
@@ -14,6 +15,7 @@ module.exports.CreateIdea = function (req, res) {
         ideaId:req.body.ideaId,
         description:req.body.description,
         upvotes:req.body.upvotes
+        },function(err, Idea) { 
         }, (err,Idea) =>{
             if(err){
                 res
@@ -25,8 +27,8 @@ module.exports.CreateIdea = function (req, res) {
                     .json(data);
                     return;
             }
-            
-        }); 
+        })
+      
    }; 
 
 module.exports.IdeaReadOne = function(req,res){
@@ -55,18 +57,18 @@ module.exports.IdeaReadOne = function(req,res){
 
 //FEEDBACK==========================================================================================FEEDBACK
 
-module.exports.CreateFeedback = function(req,res){
-    Feed.create({
-        subjectid:'CSL4201',
-        topics:req.body.topics,
-        status:req.body.status,
-        },(err,Feed) =>{
+module.exports.AskQuestionPost = function(req,res){
+    question.create({
+        subjectId:req.body.subjectId,
+        title:req.body.topic,
+        body:req.body.description,
+        },(err,question) =>{
             if(err){
                 res
                     .status(400)
                     .json(err);
             }else{
-                const data={Feed};
+                const data={question};
                 res
                     .json(data);
                     return;

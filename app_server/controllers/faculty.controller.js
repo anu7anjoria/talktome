@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 const question = mongoose.model('question');
 const Fac = mongoose.model('fac');
 const feed = mongoose.model('feed');
-const ak = mongoose.model('askquestion');
 
 const DisplayQues = function(req,res){
-    ak.find(
-        {},function(err,ak){
+    question.find(
+        {},function(err,question){
         if(err) {
             console.log("There was a problem finding the ticket.");
         } else {
-            res.render('./faculty/faculty',{ data:ak })       
+            res.render('./faculty/faculty',{ data:question
+             })       
          }
     })   
 }

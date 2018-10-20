@@ -9,6 +9,8 @@ var ctrlStudent = require('../controllers/student.controller.js');
 var ctrlCoc = require('../controllers/coc.controller.js');
 var ctrlCounsellor = require('../controllers/counsellor.controller.js');
 var ctrlFaaculty = require('../controllers/faculty.controller.js');
+
+//SignUp===============================================================================================SignUP
 router.post('/signup',ctrlMain.SignUpCreate);
 router.get('/login',ctrlMain.LoginReaOne);
 
@@ -21,7 +23,7 @@ router.get('/student/ideation',ctrlStudent.DisplayUser);
 router.post('/student/counselling',ctrlStudent.CreateCounselling);
 router.get('/student/counselling/:counselId',ctrlStudent.CounsellingReadOne);
 
-router.post('/student/feedback',ctrlStudent.CreateFeedback);
+//router.post('/student/feedback',ctrlStudent.CreateFeedback);
 router.get('/student/feedback/:feedId',ctrlStudent.FeedbackReadOne);
 
 //FACULTY=============================================================================================FACULTY
@@ -61,4 +63,6 @@ router.post('/coc/assigntask',ctrlCoc.AssignTaskCreate);
 // router.get('/coc/facultydetail',ctrlCoc.FacultyDetail);
 
 //router.get('/hod/subjects',ctrlFaaculty.SubjectReadAll);
+
+router.post('/student/feedback/subject/askquestion',ctrlStudent.AskQuestionPost);
 module.exports = router;

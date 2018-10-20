@@ -1,9 +1,16 @@
+const request = require('request');
+const apiOptions = {
+  server : 'http://localhost:3000'
+};
+if (process.env.NODE_ENV === 'production') {
+  apiOptions.server = '';
+}
+
 const mongoose = require('mongoose');
 const user = mongoose.model('user');
 const idea = mongoose.model('idea');
 const feed = mongoose.model('feed');
 const Cousnel = mongoose.model('counselling');
-const ak = mongoose.model('askquestion');
 const question = mongoose.model('question');
 
 const AnswerReadOne = function(req,res){
@@ -18,38 +25,33 @@ const AnswerReadOne = function(req,res){
 }
 
 const AskQuestionPost = function(req,res){
-    ak.create({
-        title:req.body.aktitle,
-        body:req.body.akbody
-        },(err,ak) =>{
+    const path = '/api/student/feedback/subject/askquestion';
+    const requestOption = {
+      url : apiOptions.server + path,
+      method : 'POST',
+      json : {
+        subjectId:req.body.subjectId,
+        title:req.body.topic,
+        body:req.body.description,
+      },
+      qs : {}
+    };
+    request(
+        requestOption,
+        (err,response,body)=>{
+            let data=body;
             if(err){
                 res
                     .status(400)
                     .json(err);
             }else{
                 res
-                    .render('/student/feedback/askquestion');
+                    .render('./stduent/feedback',{title:'Student | Deedback'});
             }
-            
-        }); 
+        }
+      );
 }
 
-const SignUpCreate = function(req,res){
-    user.create({
-        email  : req.body.email,
-        password : req.body.password
-        },(err,user) =>{
-            if(err){
-                res
-                    .status(400)
-                    .json(err);
-            }else{
-                res
-                .render('login',{title:'Login'});
-            }
-            
-        }); 
-}
 const Idea = function(req,res){
     idea.create({
         description:req.body.description
@@ -92,26 +94,13 @@ const CousnellingPost = function(req,res){
                     .json(err);
             }else{
                 res
-                .render('./student/counselling/tcounsel',{title:'Student Ideation'});
+                .render('./student/feedback/askquestion',{title:'Student Ideation'});
             }
             
         }); 
 }
 
-const LoginReaOne =  function(req,res){
-    user.findById({email:req.body.email}
-        ,function(err,user){
-            if(err)
-            {
-                console.log(err);
-            }
-            else
-            {
-                render('./student/student');
-            }
-    })
 
-}
 const Detail = function(req,res){
 
 }
@@ -150,5 +139,5 @@ const AskQuestion = function(req,res){
 
 module.exports = {
     Student,Feedback,FeedbackHostel,FeedbackSubject,Counselling,Ideation,Question,Idea,
-    LoginReaOne,SignUpCreate,Detail,FeedbackSubjectPost,CousnellingPost,AskQuestion,AskQuestionPost,AnswerReadOne
+    Detail,FeedbackSubjectPost,CousnellingPost,AskQuestion,AskQuestionPost,AnswerReadOne
 }

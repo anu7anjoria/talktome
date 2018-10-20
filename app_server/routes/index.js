@@ -80,11 +80,11 @@ router.post('/student/feedback/subject/askquestion',ctrlStudent.AskQuestionPost)
 
 // router.post('/student/ideation',ctrlStudent.Idea);
 // router.post('/student/feedback/question',ctrlStudent.AskQuestion);
-router.post('/login',ctrlStudent.LoginReaOne);
+router.post('/login',ctrlMain.LoginReaOne);
 router.get('/login',function(req,res){
     res.render('login',{title:'Login'})
 })
-router.post('/signup',ctrlStudent.SignUpCreate);
+router.post('/signup',ctrlMain.SignUpCreate);
 router.get('/signup',function(req,res){
     res.render('signup',{title:'SignUp'})
 })

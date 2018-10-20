@@ -1,11 +1,17 @@
 <%- include('./dash') -%>
 
 <form method="POST">
-    <label name ="aktitle"></label>
+        <label name ="subjectId"></label>
+        <h5>Subject ID</h5>
+        <input type="text" name="subjectId">
+
+    <label name ="topic"></label>
     <h5>Topic:</h5>
-    <input type="text" name="aktitle">
+    <input type="text" name="topic">
+
+    <label name ="description"></label>
     <h5>Question:</h5>
-    <input type="text" name="akbody">
+    <input type="text" name="description">
 
     <button type="submit">Submit</button>
 </form>
