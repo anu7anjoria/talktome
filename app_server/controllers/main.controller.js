@@ -36,7 +36,7 @@ const SignUpCreate = function(req,res){
                     .json(err);
             }else{
                 res
-                    .render('./student/student',{data:data});
+                    .render('./student/student',{data:user});
             }
         }
       );
@@ -67,6 +67,7 @@ const StudentDetails = function(req,res){
                     .status(400)
                     .json(err);
             }else{
+                console.log(data);
                 res
                     .render('./student/student',{title:'LogIn'});
             }

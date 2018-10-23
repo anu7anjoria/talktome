@@ -1,9 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var GoogleStrategy = require('passport-google');
-var passport = require('passport');
-var LocalStrategy = require('passport-local');
 var session = require('express-session');
 //require('./app_server/models/db');
 require('./app_api/models/db');
@@ -25,8 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'app_server','public')));
 app.use(session({secret: 'supernova', saveUninitialized: true, resave: true}));
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 app.use('/api',function(req,res,next){
   res.header('Access-Control-Allow-Origin','http://localhost:3000');

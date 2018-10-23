@@ -21,7 +21,6 @@ module.exports.SignUpCreate = function(req,res){
                     .status(400)
                     .json(err);
             }else{
-                console.log('api main');
                 req.session.userId = user._id;
                 const data=user._id;
                 res
