@@ -121,7 +121,7 @@ const CousnellingPost = function(req,res){
 
 
 const Detail = function(req,res){
-
+    res.render('./StudentProfile',{title:'Your Details'});
 }
 const Student = function(req,res){
     res.

@@ -93,5 +93,17 @@ router.post('/signup',ctrlMain.SignUpCreate);
 router.get('/signup',function(req,res){
     res.render('signup',{title:'SignUp'})
 })
+router.get('/logout', function (req, res, next) {
+    if (req.session) {
+      // delete session object
+      req.session.destroy(function (err) {
+        if (err) {
+          return next(err);
+        } else {
+          return res.redirect('/');
+        }
+      });
+    }
+  });
 router.get('/signup/detail',ctrlStudent.Detail);
 module.exports = router;

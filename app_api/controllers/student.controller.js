@@ -26,7 +26,6 @@ module.exports.CreateIdea = function (req, res) {
                     return;
             }
         })
-      
    }; 
 
 module.exports.IdeaReadOne = function(req,res){

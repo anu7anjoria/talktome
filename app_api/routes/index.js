@@ -12,8 +12,8 @@ var ctrlFaaculty = require('../controllers/faculty.controller.js');
 
 //SignUp===============================================================================================SignUP
 router.post('/signup',ctrlMain.SignUpCreate);
-router.get('/login',ctrlMain.LoginReaOne);
-
+router.post('/login',ctrlMain.LoginReaOne);
+router.post('/signup/detail',ctrlMain.StudentDetails);
 //STUDENT=============================================================================================STUDENT
 router.post('/student/ideation',ctrlStudent.CreateIdea);
 router.get('/student/ideation/:ideaId',ctrlStudent.IdeaReadOne);
