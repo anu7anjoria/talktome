@@ -35,7 +35,11 @@ const userSchema = new mongoose.Schema({
         type:String,
         //required:true
       },
+        subjectName:String,
+        facultyName:String
+
 });
+
 //===========================================
 
 

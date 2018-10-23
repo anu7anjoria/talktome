@@ -7,6 +7,8 @@ module.exports.SignUpCreate = function(req,res){
         var userData = {
           email: req.body.email,
           password: req.body.password,
+          subjectName:req.body.subjectName,
+          facultyName:req.body.facultyName
         //   dept:req.body.dept,
         //   batch:req.body.batch,
         //   name:req.body.name,
@@ -21,8 +23,8 @@ module.exports.SignUpCreate = function(req,res){
                     .status(400)
                     .json(err);
             }else{
-                req.session.userId = user._id;
-                const data=user._id;
+                req.session.user = user;
+                const data=user;
                 res
                     .json(data);
                     return;
@@ -32,22 +34,34 @@ module.exports.SignUpCreate = function(req,res){
 }
 
 module.exports.LoginReaOne = function(req,res){
-    user.authenticate(req.body.email, req.body.password, function (error, userUser) {
-        if (error || !user) {
-        //   var err = new Error('Wrong email or password.');
-        //   err.status = 401;
-        //   return next(err);
-        console.log('error');
-        } else {
-          req.session.userId = user._id;
-          const data = user._id;
-          console.log(data);
-            res
-                .json(data);
-                return;
-        }
-      });
-
+    // user.authenticate(req.body.email, req.body.password, function (error, userUser) {
+    //     if (error || !user) {
+    //     //   var err = new Error('Wrong email or password.');
+    //     //   err.status = 401;
+    //     //   return next(err);
+    //     console.log('error');
+    //     } else {
+    //       req.session.userId = user._id;
+    //       const data = user._id;
+    //       console.log(data);
+    //         res
+    //             .json(data);
+    //             return;
+    //     }
+    //   });
+    user.findOne({email:req.body.email
+    },(err,user)=>{ 
+        if(err){
+        res
+            .status(400)
+            .json(err);
+    }else{
+        req.session.user = user;
+        const data=user;
+        res
+            .json(data);
+            return;
+    }});
 }
 
 module.exports.StudentDetails = function(req,res){

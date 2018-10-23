@@ -56,6 +56,7 @@ module.exports.IdeaReadOne = function(req,res){
 
 module.exports.AskQuestionPost = function(req,res){
     question.create({
+        sId:req.body.user_id,
         subjectId:req.body.subjectId,
         title:req.body.title,
         description:req.body.description,

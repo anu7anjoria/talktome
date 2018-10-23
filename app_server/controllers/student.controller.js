@@ -24,10 +24,13 @@ const AnswerReadOne = function(req,res){
 
 const AskQuestionPost = function(req,res){
     const path = '/api/student/feedback/subject/askquestion';
+    const user_id = req.session.user;
+    user_id == user_id.email;
     const requestOption = {
       url : apiOptions.server + path,
       method : 'POST',
       json : {
+        user_id:user_id,
         subjectId:req.body.qsubjectId,
         title:req.body.qtitle,
         description:req.body.qdescription,
@@ -124,8 +127,7 @@ const Detail = function(req,res){
     res.render('./StudentProfile',{title:'Your Details'});
 }
 const Student = function(req,res){
-    res.
-        render('./student/student',{title:'Student'});
+    res.render('./student/student',{title:'Student'});
 }
 const Counselling = function(req,res){
     res.

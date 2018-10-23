@@ -17,9 +17,11 @@ const SignUpCreate = function(req,res){
           email:req.body.email,
           password:req.body.password,
           passwordConf:req.body.passwordConf,
+          subjectName:req.body.subjectName,
+          facultyName:req.body.facultyName
         //   dept:req.body.dept,
         //   batch:req.body.batch,
-        //   name:req.body.name,
+        //   name:req.body.name,S
         //   gender:req.body.gender,
         //   univroll:req.body.univroll,
         //   phone:req.body.phone
@@ -35,8 +37,9 @@ const SignUpCreate = function(req,res){
                     .status(400)
                     .json(err);
             }else{
-                res
-                    .render('./student/student',{data:user});
+                req.session.user = data;
+                console.log(data);
+               res.redirect('./student');
             }
         }
       );
@@ -67,7 +70,7 @@ const StudentDetails = function(req,res){
                     .status(400)
                     .json(err);
             }else{
-                console.log(data);
+
                 res
                     .render('./student/student',{title:'LogIn'});
             }
@@ -83,8 +86,7 @@ const LoginReaOne = function(req,res){
           email:req.body.lemail,
           password:req.body.lpassword
       },
-      qs : {email:req.body.lemail,
-        password:req.body.lpassword}
+      qs : {}
     };
     request(
         requestOption,
@@ -95,18 +97,9 @@ const LoginReaOne = function(req,res){
                     .status(400)
                     .json(err);
             }else{
-                User.findOne({_id:data
-                },(err,user) => {
-                    if(err){
-                        res
-                            .status(400)
-                            .json(err);
-                    }
-                    else{
-                        console.log(data);
-                    }
-                });
-            }
+                res
+                    .redirect('/student');
+            }   
         }
       );
 }

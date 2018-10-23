@@ -15,7 +15,7 @@ var Idea = mongoose.model('idea');
 var Feed = mongoose.model('feed');
 var Counsel = mongoose.model('counselling');
 //Home page
-router.get('/', ctrlMain.Home);
+//router.get('/', ctrlMain.Home);
 
 //Course Coordinator
 router.get('/coc',ctrlCoc.Coc);
@@ -60,7 +60,7 @@ router.get('/moderator/mostupvoted',ctrlModerator.MostUpvoted);
 router.get('/moderator/response',ctrlModerator.Response);
 
 //Student
-router.get('/student',ctrlStudent.AnswerReadOne);
+//router.get('/student',ctrlStudent.AnswerReadOne);
 router.get('/student/counselling',ctrlStudent.Counselling);
 router.get('/student/counselling/prcounsel',function(req,res){
     res.render('./student/counselling/tcounsel');
@@ -80,30 +80,26 @@ router.get('/student/feedback/subject/askquestion',ctrlStudent.AskQuestion);
 
 // router.post('/student/ideation',ctrlStudent.Idea);
 // router.post('/student/feedback/question',ctrlStudent.AskQuestion);
-router.post('/login',ctrlMain.LoginReaOne);
-router.get('/login',function(req,res){
-    res.render('login',{title:'Login'})
-});
+// router.post('/login',ctrlMain.LoginReaOne);
+// router.get('/login',function(req,res){
+//     res.render('login',{title:'Login'})
+// });
 
-router.get('/login-faculty',function(req,res){
-    res.render('login-faculty',{title:'Login | Faculty'})
-});
+// router.get('/login-faculty',function(req,res){
+//     res.render('login-faculty',{title:'Login | Faculty'})
+// });
 
-router.post('/signup',ctrlMain.SignUpCreate);
-router.get('/signup',function(req,res){
-    res.render('signup',{title:'SignUp'})
-})
-router.get('/logout', function (req, res, next) {
-    if (req.session) {
-      // delete session object
-      req.session.destroy(function (err) {
-        if (err) {
-          return next(err);
-        } else {
-          return res.redirect('/');
-        }
-      });
-    }
-  });
-router.get('/signup/detail',ctrlStudent.Detail);
+// router.post('/signup',ctrlMain.SignUpCreate);
+// router.get('/signup',function(req,res){
+//     res.render('signup',{title:'SignUp'})
+// })
+// router.get('/logout', function (req, res, next) {
+//   if (req.session.user && req.cookies.user_sid) {
+//     res.clearCookie('user_sid');
+//     res.redirect('/');
+// } else {
+//     res.redirect('/login');
+// }
+//   });
+//router.get('/signup/detail',ctrlStudent.Detail);
 module.exports = router;
