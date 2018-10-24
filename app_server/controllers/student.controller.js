@@ -25,7 +25,6 @@ const AnswerReadOne = function(req,res){
 const AskQuestionPost = function(req,res){
     const path = '/api/student/feedback/subject/askquestion';
     const user_id = req.session.user;
-    console.log(user_id);
     const requestOption = {
       url : apiOptions.server + path,
       method : 'POST',

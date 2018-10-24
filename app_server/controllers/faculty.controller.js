@@ -4,6 +4,7 @@ const Fac = mongoose.model('fac');
 const feed = mongoose.model('feed');
 const user = mongoose.model('user');
 const facultySchema = mongoose.model('facultySignup');
+const questionAns = mongoose.model('questionAns');
 const DisplayQues = function(req,res){
     const facultySchema_id = req.session.facultySchema;
     //facultynaam = facultynaam.email;
@@ -13,6 +14,7 @@ const DisplayQues = function(req,res){
         if(err) {
             console.log("There was a problem .");
         } else {
+            var store = [];
             for(var i=0 ; i<user.length ; i++){
                 var newID = new Array();
                 newID[i] = user[i]._id;
@@ -21,29 +23,47 @@ const DisplayQues = function(req,res){
                     if(err) {
                         console.log("There was a problem.");
                     } else {
-                        //here
+                        store.push(question);
+                        console.log(store);
+                        if(user[i] == null){
+                            console.log(store);
+                            res.render('./faculty/faculty',{data:store});
+                        }
                     }
                 }) 
             }
-        }
+        }  
     })
-
 }
 const postAnswertoo = function(req,res){
-    question.create({
-            title:req.body.titleanswer,
-            body:req.body.postanswer
-        },(err,Facquestion) =>{
+    const path = '/api/faculty/postanswer';
+    const user_id = req.session.facultySchema;
+    console.log(user_id);
+    const requestOption = {
+      url : apiOptions.server + path,
+      method : 'POST',
+      json : {
+        user_id:user_id,
+        subjectId:req.body.qsubjectId,
+        title:req.body.qtitle,
+        description:req.body.qdescription,
+      },
+      qs : {}
+    };
+    request(
+        requestOption,
+        (err,response,body)=>{
+            let data=body;
             if(err){
                 res
                     .status(400)
                     .json(err);
             }else{
                 res
-                .render('login',{title:'Login'});
+                    .render('./student/feedback/feedback',{title:'Student | Deedback'});
             }
-            
-        }); 
+        }
+      );
 }
 
 const AssignPost = function(req,res){
