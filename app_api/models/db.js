@@ -57,4 +57,5 @@ require('./userSignup');
 require('./mod');
 require('./coc');
 require('./questions');
+require('./facultySignup');
 

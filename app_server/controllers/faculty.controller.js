@@ -2,16 +2,32 @@ const mongoose = require('mongoose');
 const question = mongoose.model('question');
 const Fac = mongoose.model('fac');
 const feed = mongoose.model('feed');
-
+const user = mongoose.model('user');
+const facultySchema = mongoose.model('facultySignup');
 const DisplayQues = function(req,res){
-    question.find(
-        {},function(err,question){
+    const facultySchema_id = req.session.facultySchema;
+    //facultynaam = facultynaam.email;
+    user.find({
+        facultyName:facultySchema_id.email,    
+    },function(err,user){
         if(err) {
-            console.log("There was a problem finding the ticket.");
+            console.log("There was a problem .");
         } else {
-            res.render('./faculty/faculty',{ data:question })       
-         }
-    })   
+            for(var i=0 ; i<user.length ; i++){
+                var newID = new Array();
+                newID[i] = user[i]._id;
+                question.findOne(
+                    {sId:newID[i]},function(err,question){
+                    if(err) {
+                        console.log("There was a problem.");
+                    } else {
+                        //here
+                    }
+                }) 
+            }
+        }
+    })
+
 }
 const postAnswertoo = function(req,res){
     question.create({

@@ -32,7 +32,7 @@ router.get('/counsellor/viewproblem',ctrlCounsellor.ViewProblem);
 router.get('/counsellor/writeback',ctrlCounsellor.WriteBack);
 
 //Faculty
-router.get('/faculty',ctrlFaaculty.DisplayQues);
+router.get('/faculty/r',ctrlFaaculty.DisplayQues);
 router.get('/faculty/assignfinal',ctrlFaaculty.AssignFinal);
 router.get('/faculty/assigntostudent',ctrlFaaculty.AssignToStudent);
 router.get('/faculty/postanswer',ctrlFaaculty.PostAnswer);
