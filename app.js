@@ -36,173 +36,173 @@ app.use(session({
 
 //This middleware will check if user's cookie is still saved in browser and user is not set, then automatically log the user out.
 //This usually happens when you stop your express server after login, your cookie still remains saved in the browser.
-// app.use((req, res, next) => {
-//   if (req.cookies.user_sid && !req.session.user) {
-//       res.clearCookie('user_sid');        
-//   }
-//   next();
-// });
+app.use((req, res, next) => {
+  if (req.cookies.user_sid && !req.session.user) {
+      res.clearCookie('user_sid');        
+  }
+  next();
+});
 
-// // middleware function to check for logged-in users
-// var sessionChecker = (req, res, next) => {
-//   if (req.session.user && req.cookies.user_sid) {
-//       res.redirect('/student');
-//   } else {
-//       next();
-//   }    
-// };
+// middleware function to check for logged-in users
+var sessionChecker = (req, res, next) => {
+  if (req.session.user && req.cookies.user_sid) {
+      res.redirect('/student');
+  } else {
+      next();
+  }    
+};
 
-// // route for Home-Page
-// app.get('/', sessionChecker, (req, res) => {
-//   res.redirect('/login');
-// });
+// route for Home-Page
+app.get('/', sessionChecker, (req, res) => {
+  res.redirect('/login');
+});
 
-// // route for user signup
-// app.route('/signup')
-//     .get(sessionChecker, (req, res) => {
-//         res.render(__dirname + '/app_server/views/signup.ejs',{title:'Signup'});
-//     })
-//     .post((req, res) => {
-//         User.create({
-//             email: req.body.email,
-//             password: req.body.password,
-//             subjectName:req.body.subjectName,
-//             facultyName:req.body.facultyName
-//         })
-//         .then(user => {
-//             req.session.user = user;  //===========================
-//             res.redirect('/student');
-//         })
-//         .catch(error => {
-//             res.redirect('/signup');
-//         });
-//     });
-
-
-// // route for user Login
-// app.route('/login')
-//     .get(sessionChecker, (req, res) => {
-//         res.render(__dirname + '/app_server/views/login.ejs',{title:'Login'});
-//     })
-//     .post((req, res) => {
-//            var email = req.body.lemail;
-//            var password = req.body.lpassword;
-
-//         User.findOne({ email: email ,password:password}).then(function (user) {
-//             if (!user) {
-//                 res.redirect('/login');
-//             }
-//              else {
-//                 req.session.user = user; //===========================
-//                 res.redirect('/student');
-//             }
-//         });
-//     });
-
-//     // route for user's dashboard
-// app.get('/student', (req, res) => {
-//   if (req.session.user && req.cookies.user_sid) {
-//       res.render(__dirname + '/app_server/views/student/student.ejs',{title:'Student | Dashboard'});
-//   } else {
-//       res.redirect('/login');
-//   }
-// });
+// route for user signup
+app.route('/signup')
+    .get(sessionChecker, (req, res) => {
+        res.render(__dirname + '/app_server/views/signup.ejs',{title:'Signup'});
+    })
+    .post((req, res) => {
+        User.create({
+            email: req.body.email,
+            password: req.body.password,
+            subjectName:req.body.subjectName,
+            facultyName:req.body.facultyName
+        })
+        .then(user => {
+            req.session.user = user;  //===========================
+            res.redirect('/student');
+        })
+        .catch(error => {
+            res.redirect('/signup');
+        });
+    });
 
 
-// // route for user logout
-// app.get('/logout', (req, res) => {
-//   if (req.session.user && req.cookies.user_sid) {
-//       res.clearCookie('user_sid');
-//       res.redirect('/');
-//   } else {
-//       res.redirect('/login');
-//   }
-// });
+// route for user Login
+app.route('/login')
+    .get(sessionChecker, (req, res) => {
+        res.render(__dirname + '/app_server/views/login.ejs',{title:'Login'});
+    })
+    .post((req, res) => {
+           var email = req.body.lemail;
+           var password = req.body.lpassword;
+
+        User.findOne({ email: email ,password:password}).then(function (user) {
+            if (!user) {
+                res.redirect('/login');
+            }
+             else {
+                req.session.user = user; //===========================
+                res.redirect('/student');
+            }
+        });
+    });
+
+    // route for user's dashboard
+app.get('/student', (req, res) => {
+  if (req.session.user && req.cookies.user_sid) {
+      res.render(__dirname + '/app_server/views/student/student.ejs',{title:'Student | Dashboard'});
+  } else {
+      res.redirect('/login');
+  }
+});
+
+
+// route for user logout
+app.get('/logout', (req, res) => {
+  if (req.session.user && req.cookies.user_sid) {
+      res.clearCookie('user_sid');
+      res.redirect('/');
+  } else {
+      res.redirect('/login');
+  }
+});
 
 
 // //=========================================================================================================
 
-app.use((req, res, next) => {
-    if (req.cookies.user_sid && !req.session.facultySchema) {
-        res.clearCookie('user_sid');        
-    }
-    next();
-  });
-  
-  // middleware function to check for logged-in users
-  var sessionCheckerFaculty = (req, res, next) => {
-    if (req.cookies.user_sid && !req.session.facultySchema) {
-        res.redirect('/faculty');
-    } else {
-        next();
-    }    
-  };
-  
-  // route for Home-Page
-//   app.get('/', sessionChecker, (req, res) => {
-//     res.redirect('/login');
+// app.use((req, res, next) => {
+//     if (req.cookies.user_sid && !req.session.facultySchema) {
+//         res.clearCookie('user_sid');        
+//     }
+//     next();
 //   });
   
-  // route for user signup
-  app.route('/signup-faculty')
-      .get(sessionCheckerFaculty, (req, res) => {
-          res.render(__dirname + '/app_server/views/signup-faculty.ejs',{title:'Signup - Faculty'});
-      })
-      .post((req, res) => {
-          FacultySchema.create({
-              usrname:req.body.usrname,
-              email: req.body.email,
-              password: req.body.password,
-          })
-          .then(facultySchema => {
-              req.session.facultySchema = facultySchema;
-              res.redirect('/faculty');
-          })
-          .catch(error => {
-              res.redirect('/signup-faculty');
-          });
-      });
+//   // middleware function to check for logged-in users
+//   var sessionCheckerFaculty = (req, res, next) => {
+//     if (req.cookies.user_sid && !req.session.facultySchema) {
+//         res.redirect('/faculty');
+//     } else {
+//         next();
+//     }    
+//   };
+  
+//   // route for Home-Page
+// //   app.get('/', sessionChecker, (req, res) => {
+// //     res.redirect('/login');
+// //   });
+  
+//   // route for user signup
+//   app.route('/signup-faculty')
+//       .get(sessionCheckerFaculty, (req, res) => {
+//           res.render(__dirname + '/app_server/views/signup-faculty.ejs',{title:'Signup - Faculty'});
+//       })
+//       .post((req, res) => {
+//           FacultySchema.create({
+//               usrname:req.body.usrname,
+//               email: req.body.email,
+//               password: req.body.password,
+//           })
+//           .then(facultySchema => {
+//               req.session.facultySchema = facultySchema;
+//               res.redirect('/faculty');
+//           })
+//           .catch(error => {
+//               res.redirect('/signup-faculty');
+//           });
+//       });
   
   
-  // route for user Login
-  app.route('/login-faculty')
-      .get(sessionCheckerFaculty, (req, res) => {
-          res.render(__dirname + '/app_server/views/login-faculty.ejs',{title:'Login - Faculty'});
-      })
-      .post((req, res) => {
-             const email = req.body.lemail;
-             const  password = req.body.lpassword;
+//   // route for user Login
+//   app.route('/login-faculty')
+//       .get(sessionCheckerFaculty, (req, res) => {
+//           res.render(__dirname + '/app_server/views/login-faculty.ejs',{title:'Login - Faculty'});
+//       })
+//       .post((req, res) => {
+//              const email = req.body.lemail;
+//              const  password = req.body.lpassword;
   
-              FacultySchema.findOne({ email: email,password : password }).then(function (facultySchema) {
-              if (!facultySchema) {
-                  res.redirect('/login-faculty');
-              }
-               else {
-                req.session.facultySchema = facultySchema;
-                res.redirect('/faculty');
-              }
-          });
-      });
+//               FacultySchema.findOne({ email: email,password : password }).then(function (facultySchema) {
+//               if (!facultySchema) {
+//                   res.redirect('/login-faculty');
+//               }
+//                else {
+//                 req.session.facultySchema = facultySchema;
+//                 res.redirect('/faculty');
+//               }
+//           });
+//       });
   
-      // route for user's dashboard
-  app.get('/faculty', (req, res) => {
-    if (req.session.facultySchema && req.cookies.user_sid) {
-        res.render(__dirname + '/app_server/views/faculty/faculty.ejs',{title:'Student | Dashboard'});
-    } else {
-        res.redirect('/login-faculty');
-    }
-  });
+//       // route for user's dashboard
+//   app.get('/faculty', (req, res) => {
+//     if (req.session.facultySchema && req.cookies.user_sid) {
+//         res.render(__dirname + '/app_server/views/faculty/faculty.ejs',{title:'Student | Dashboard'});
+//     } else {
+//         res.redirect('/login-faculty');
+//     }
+//   });
   
   
-  // route for user logout
-  app.get('/faculty/logout-faculty', (req, res) => {
-    if (req.session.facultySchema && req.cookies.user_sid) {
-        res.clearCookie('faculty_sid');
-        res.redirect('/');
-    } else {
-        res.redirect('/login-faculty');
-    }
-  });
+//   // route for user logout
+//   app.get('/faculty/logout-faculty', (req, res) => {
+//     if (req.session.facultySchema && req.cookies.user_sid) {
+//         res.clearCookie('faculty_sid');
+//         res.redirect('/');
+//     } else {
+//         res.redirect('/login-faculty');
+//     }
+//   });
 
 //========================================================================================================
 

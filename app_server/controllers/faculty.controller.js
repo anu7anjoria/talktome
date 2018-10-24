@@ -1,10 +1,21 @@
 const mongoose = require('mongoose');
 const question = mongoose.model('question');
-const Fac = mongoose.model('fac');
 const feed = mongoose.model('feed');
 const user = mongoose.model('user');
 const facultySchema = mongoose.model('facultySignup');
 const questionAns = mongoose.model('questionAns');
+const StudentList = mongoose.model('stuList');
+const request = require('request');
+const apiOptions = {
+    server : 'http://localhost:3000'
+  };
+  if (process.env.NODE_ENV === 'production') {
+    apiOptions.server = '';
+  }
+// const pushStore = function(a){
+//     store1.push(a);
+// }
+// pushStore(question);
 const DisplayQues = function(req,res){
     const facultySchema_id = req.session.facultySchema;
     //facultynaam = facultynaam.email;
@@ -14,7 +25,6 @@ const DisplayQues = function(req,res){
         if(err) {
             console.log("There was a problem .");
         } else {
-            var store = [];
             for(var i=0 ; i<user.length ; i++){
                 var newID = new Array();
                 newID[i] = user[i]._id;
@@ -23,30 +33,24 @@ const DisplayQues = function(req,res){
                     if(err) {
                         console.log("There was a problem.");
                     } else {
-                        store.push(question);
-                        console.log(store);
-                        if(user[i] == null){
-                            console.log(store);
-                            res.render('./faculty/faculty',{data:store});
-                        }
+                        //store1.question.push(question);
                     }
                 }) 
             }
         }  
     })
+    //console.log(store1);
 }
 const postAnswertoo = function(req,res){
     const path = '/api/faculty/postanswer';
-    const user_id = req.session.facultySchema;
-    console.log(user_id);
+    // const user_id = req.session.facultySchema;
+    // console.log(user_id);
     const requestOption = {
       url : apiOptions.server + path,
       method : 'POST',
       json : {
-        user_id:user_id,
-        subjectId:req.body.qsubjectId,
-        title:req.body.qtitle,
-        description:req.body.qdescription,
+        title:req.body.titlea,
+        body:req.body.postanswer,
       },
       qs : {}
     };
@@ -59,11 +63,43 @@ const postAnswertoo = function(req,res){
                     .status(400)
                     .json(err);
             }else{
-                res
-                    .render('./student/feedback/feedback',{title:'Student | Deedback'});
+                console.log(data);
             }
         }
       );
+}
+
+const addStudent = function(req,res){
+    const fac_id = req.session.facultySchema;
+    fac_id == fac_id.email;
+    StudentList.create({
+        teacherid:fac_id,
+        studentid:req.body.addstu
+    }, (err,StudentList) =>{
+        if(err){
+            res
+                .status(400)
+                .json(err);
+        }else{
+            res.redirect('/faculty/studentList');
+        }
+    })
+}
+
+const SendDataToStudent = function(req,res){
+    questionAns.create({
+        sId:req.body.stu,
+        title:req.body.titlea,
+        description:req.body.postanswer
+    },(err,questionAns) =>{
+        if(err){
+            res
+                .status(400)
+                .json(err);
+        }else{
+            res.redirect('/faculty/postanswer');
+        }
+    })
 }
 
 const AssignPost = function(req,res){
@@ -115,6 +151,6 @@ const Stats = function(req,res){
 
 module.exports = {
     Faculty,AssignFinal,AssignToStudent,PostAnswer,Stats,
-    postAnswertoo,AssignPost,DisplayQues
+    postAnswertoo,AssignPost,DisplayQues,addStudent,SendDataToStudent
 
 }

@@ -48,7 +48,7 @@ require('./student/ideation/idea');
 require('./student/counselling/counsel');
 require('./student/feedback/feed');
 require('./student/cho');
-require('./faculty');
+require('./answer');
 require('./counsellor');
 require('./hod');
 require('./mod');
@@ -59,4 +59,5 @@ require('./coc');
 require('./questions');
 require('./facultySignup');
 require('./questionAns');
+require('./studentList');
 

@@ -7,5 +7,5 @@ const questionAns = new mongoose.Schema({
         description:String,
         date: { type: Date, default: Date.now },
 });
-
+        
 mongoose.model('questionAns',questionAns);

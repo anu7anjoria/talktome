@@ -1,28 +1,28 @@
 const mongoose = require('mongoose');
-const Faculty = mongoose.model('fac');
-                  
+const answer = mongoose.model('answer');
+const facultySignup = mongoose.model('facultySignup');              
 const sendJsonResponse = function(res, status, content) { 
   res.status(status); 
   res.json(content);
 };
 
 module.exports.PostAnswerCreate = function(req,res){
-    Faculty.create({
-        post_answer:[{
+    answer.create({
             title:req.res.title,
             body:req.body.body,
-            date:req.body.date
-        }]
-        }, function(err, Faculty) { 
-        if (err) {
-        sendJsonResponse(res, 400, err);
-        } else {
-        sendJsonResponse(res, 201, Faculty);
-        }
-        }); 
+        },(err,answer) =>{
+            if(err){
+                res
+                    .status(400)
+                    .json(err);
+            }else{
+                const data={answer};
+                res
+                    .json(data);
+                    return;
+            }     
+        });
 }
-
-
 module.exports.PostAnswerReadOne = function(req,res){
     if (req.params && req.params.postId) { 
         Faculty

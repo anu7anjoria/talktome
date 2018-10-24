@@ -8,7 +8,10 @@ const facultySchema = new mongoose.Schema({
     },
     password:{
         type:String
-    }
+    },
+    studentList:[{
+        type:String
+    }]
 });
 
 var facultySignup = mongoose.model('facultySignup', facultySchema);

@@ -4,6 +4,7 @@ const idea = mongoose.model('idea');
 const feed = mongoose.model('feed');
 const Cousnel = mongoose.model('counselling');
 const question = mongoose.model('question');
+const questionAns = mongoose.model('questionAns');
 const request = require('request');
 const apiOptions = {
   server : 'http://localhost:3000'
@@ -12,12 +13,14 @@ if (process.env.NODE_ENV === 'production') {
   apiOptions.server = '';
 }
 const AnswerReadOne = function(req,res){
-    question.find(
-        {},function(err,question){
+    user_id = req.session.user;
+    var emailId = user_id.email;
+    questionAns.find(
+        {sId:emailId},function(err,questionAns){
         if(err) {
             console.log("There was a problem finding the ticket.");
         } else {
-            res.render('./student/student',{ data:question })       
+            res.render('./student/feedback/dispques',{ data:questionAns })
          }
     })   
 }
@@ -36,6 +39,7 @@ const AskQuestionPost = function(req,res){
       },
       qs : {}
     };
+    console.log(req.session.user);
     request(
         requestOption,
         (err,response,body)=>{

@@ -39,8 +39,12 @@ router.get('/faculty/postanswer',ctrlFaaculty.PostAnswer);
 router.get('/faculty/stats',ctrlFaaculty.Stats);
 
 
-router.post('/faculty/postanswer',ctrlFaaculty.postAnswertoo);
+router.post('/faculty/postanswer',ctrlFaaculty.SendDataToStudent);
 router.post('/faculty/assigntostudent',ctrlFaaculty.AssignPost);
+router.post('/faculty/studentlist',ctrlFaaculty.addStudent);
+router.get('/faculty/studentlist',function(req,res){
+    res.render('./faculty/studentlist');
+});
 //Head Of Deoartment
 router.get('/hod',ctrlHod.Hod);
 router.get('/hod/assigntask',ctrlHod.AssignTask);
@@ -60,7 +64,7 @@ router.get('/moderator/mostupvoted',ctrlModerator.MostUpvoted);
 router.get('/moderator/response',ctrlModerator.Response);
 
 //Student
-//router.get('/student',ctrlStudent.AnswerReadOne);
+router.get('/student/r',ctrlStudent.AnswerReadOne);
 router.get('/student/counselling',ctrlStudent.Counselling);
 router.get('/student/counselling/prcounsel',function(req,res){
     res.render('./student/counselling/tcounsel');
