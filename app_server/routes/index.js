@@ -15,20 +15,20 @@ var Idea = mongoose.model('idea');
 var Feed = mongoose.model('feed');
 var Counsel = mongoose.model('counselling');
 //Home page
-//router.get('/', ctrlMain.Home);
+router.get('/', ctrlMain.Home);
 
 //Course Coordinator
-router.get('/coc',ctrlCoc.Coc);
-router.get('/coc/assigntask',ctrlCoc.AssignTask);
-router.get('/coc/mytask',ctrlCoc.MyTask);
-router.get('/coc/openforum',ctrlCoc.OpenForum);
-router.get('/coc/facultydetail',ctrlCoc.FacultyDetail);
+// router.get('/coc',ctrlCoc.Coc);
+// router.get('/coc/assigntask',ctrlCoc.AssignTask);
+// router.get('/coc/mytask',ctrlCoc.MyTask);
+// router.get('/coc/openforum',ctrlCoc.OpenForum);
+// router.get('/coc/facultydetail',ctrlCoc.FacultyDetail);
 
 //Counsellor
 router.get('/counsellor/r',ctrlCounsellor.DisplayCounsellor);
-router.get('/counsellor/giveappointment',ctrlCounsellor.GiveAppointment);
-router.get('/counsellor/postarticle',ctrlCounsellor.PostArticle);
-router.get('/counsellor/viewproblem',ctrlCounsellor.ViewProblem);
+// router.get('/counsellor/giveappointment',ctrlCounsellor.GiveAppointment);
+// router.get('/counsellor/postarticle',ctrlCounsellor.PostArticle);
+// router.get('/counsellor/viewproblem',ctrlCounsellor.ViewProblem);
 router.get('/counsellor/writeback',ctrlCounsellor.CounselReply);
 
 //Faculty
@@ -36,7 +36,7 @@ router.get('/faculty/r',ctrlFaaculty.DisplayQues);
 // router.get('/faculty/assignfinal',ctrlFaaculty.AssignFinal);
 // router.get('/faculty/assigntostudent',ctrlFaaculty.AssignToStudent);
 router.get('/faculty/postanswer',ctrlFaaculty.PostAnswer);
-router.get('/faculty/stats',ctrlFaaculty.Stats);
+// router.get('/faculty/stats',ctrlFaaculty.Stats);
 
 router.post('/faculty/postanswer',ctrlFaaculty.SendDataToStudent);
 router.post('/faculty/assigntostudent',ctrlFaaculty.AssignPost);
@@ -45,21 +45,21 @@ router.get('/faculty/studentlist',function(req,res){
     res.render('./faculty/studentlist');
 });
 //Head Of Deoartment
-router.get('/hod',ctrlHod.Hod);
-router.get('/hod/assigntask',ctrlHod.AssignTask);
-router.get('/hod/subjects',ctrlHod.Subjects);
+// router.get('/hod',ctrlHod.Hod);
+// router.get('/hod/assigntask',ctrlHod.AssignTask);
+// router.get('/hod/subjects',ctrlHod.Subjects);
 
 //Hostel Incharge
-router.get('/hostelincharge',ctrlHostelIncharge.HostelIncharge);
-router.get('/hostelincharge/markcomplete',ctrlHostelIncharge.MarkComplete);
-router.get('/hostelincharge/viewproblem',ctrlHostelIncharge.ViewProblem);
+// router.get('/hostelincharge',ctrlHostelIncharge.HostelIncharge);
+// router.get('/hostelincharge/markcomplete',ctrlHostelIncharge.MarkComplete);
+// router.get('/hostelincharge/viewproblem',ctrlHostelIncharge.ViewProblem);
 
 //Moderator
 router.get('/moderator/r',ctrlModerator.DisplayIdea);
-router.get('/moderator/mostrecent',ctrlModerator.MostRecent);
-router.get('/moderator/mostrecentapprove',ctrlModerator.MostRecentApprove);
-router.get('/moderator/mostrecentreject',ctrlModerator.MostRecentReject);
-router.get('/moderator/mostupvoted',ctrlModerator.MostUpvoted);
+// router.get('/moderator/mostrecent',ctrlModerator.MostRecent);
+// router.get('/moderator/mostrecentapprove',ctrlModerator.MostRecentApprove);
+// router.get('/moderator/mostrecentreject',ctrlModerator.MostRecentReject);
+// router.get('/moderator/mostupvoted',ctrlModerator.MostUpvoted);
 router.post('/moderator/response',ctrlModerator.ReolyToStudent);
 router.get('/moderator/response',function(req,res){
     res.render('./moderator/reasonpost');
