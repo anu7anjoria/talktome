@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Idea = mongoose.model('idea');
+const IdeaReply = mongoose.model('IdeaReply');
 const DisplayIdea = function(req,res){
     Idea.find(
         {},function(err,Idea){
@@ -9,6 +10,21 @@ const DisplayIdea = function(req,res){
             res.render('./moderator/moderator',{ data:Idea })       
          }
     })   
+}
+const ReolyToStudent = function(req,res){
+    IdeaReply.create({
+        sid:req.body.email,
+        status:req.body.status,
+        description:req.body.rtext
+    },(err,questionAns) =>{
+        if(err){
+            res
+                .status(400)
+                .json(err);
+        }else{
+            res.redirect('/moderator/response');
+        }
+    })
 }
 const Moderator = function(req,res){
     res
@@ -37,5 +53,5 @@ const Response = function(req,res){
     .render('./moderator/response',{title:'Moderator - Response'});
 };
 module.exports = {
-    Moderator,MostRecent,MostRecentApprove,MostRecentReject,MostUpvoted,Response,DisplayIdea
+    Moderator,MostRecent,MostRecentApprove,MostRecentReject,MostUpvoted,Response,DisplayIdea,ReolyToStudent
 }

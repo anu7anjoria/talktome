@@ -14,6 +14,7 @@ const SignUpCreate = function(req,res){
       url : apiOptions.server + path,
       method : 'POST',
       json : {
+          flag:req.body.isfaculty,
           email:req.body.email,
           password:req.body.password,
           passwordConf:req.body.passwordConf,

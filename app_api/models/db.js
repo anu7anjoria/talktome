@@ -60,4 +60,4 @@ require('./questions');
 require('./facultySignup');
 require('./questionAns');
 require('./studentList');
-
+require('./ideaReply');

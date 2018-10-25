@@ -25,19 +25,18 @@ router.get('/coc/openforum',ctrlCoc.OpenForum);
 router.get('/coc/facultydetail',ctrlCoc.FacultyDetail);
 
 //Counsellor
-router.get('/counsellor',ctrlCounsellor.Counsellor);
+router.get('/counsellor/r',ctrlCounsellor.DisplayCounsellor);
 router.get('/counsellor/giveappointment',ctrlCounsellor.GiveAppointment);
 router.get('/counsellor/postarticle',ctrlCounsellor.PostArticle);
 router.get('/counsellor/viewproblem',ctrlCounsellor.ViewProblem);
-router.get('/counsellor/writeback',ctrlCounsellor.WriteBack);
+router.get('/counsellor/writeback',ctrlCounsellor.CounselReply);
 
 //Faculty
 router.get('/faculty/r',ctrlFaaculty.DisplayQues);
-router.get('/faculty/assignfinal',ctrlFaaculty.AssignFinal);
-router.get('/faculty/assigntostudent',ctrlFaaculty.AssignToStudent);
+// router.get('/faculty/assignfinal',ctrlFaaculty.AssignFinal);
+// router.get('/faculty/assigntostudent',ctrlFaaculty.AssignToStudent);
 router.get('/faculty/postanswer',ctrlFaaculty.PostAnswer);
 router.get('/faculty/stats',ctrlFaaculty.Stats);
-
 
 router.post('/faculty/postanswer',ctrlFaaculty.SendDataToStudent);
 router.post('/faculty/assigntostudent',ctrlFaaculty.AssignPost);
@@ -56,12 +55,15 @@ router.get('/hostelincharge/markcomplete',ctrlHostelIncharge.MarkComplete);
 router.get('/hostelincharge/viewproblem',ctrlHostelIncharge.ViewProblem);
 
 //Moderator
-router.get('/moderator',ctrlModerator.DisplayIdea);
+router.get('/moderator/r',ctrlModerator.DisplayIdea);
 router.get('/moderator/mostrecent',ctrlModerator.MostRecent);
 router.get('/moderator/mostrecentapprove',ctrlModerator.MostRecentApprove);
 router.get('/moderator/mostrecentreject',ctrlModerator.MostRecentReject);
 router.get('/moderator/mostupvoted',ctrlModerator.MostUpvoted);
-router.get('/moderator/response',ctrlModerator.Response);
+router.post('/moderator/response',ctrlModerator.ReolyToStudent);
+router.get('/moderator/response',function(req,res){
+    res.render('./moderator/reasonpost');
+})
 
 //Student
 router.get('/student/r',ctrlStudent.AnswerReadOne);
@@ -74,8 +76,11 @@ router.get('/student/feedback/feedbackhostel',ctrlStudent.FeedbackHostel);
 router.get('/student/feedback/subject',ctrlStudent.FeedbackSubject);
 
 router.get('/student/ideation',ctrlStudent.Ideation);
+router.get('/student/ideation/response',ctrlStudent.ShowModReply);
 
 router.post('/student/ideation',ctrlStudent.Idea);
+
+
 router.post('/student/feedback/subject',ctrlStudent.FeedbackSubjectPost);
 router.post('/student/counselling/prcounsel',ctrlStudent.CousnellingPost);
 router.post('/student/feedback/subject/askquestion',ctrlStudent.AskQuestionPost);

@@ -17,7 +17,7 @@ const apiOptions = {
 // }
 // pushStore(question);
 const DisplayQues = function(req,res){
-    const facultySchema_id = req.session.facultySchema;
+    const facultySchema_id = req.session.user;
     //facultynaam = facultynaam.email;
     user.find({
         facultyName:facultySchema_id.email,    
@@ -33,6 +33,7 @@ const DisplayQues = function(req,res){
                     if(err) {
                         console.log("There was a problem.");
                     } else {
+                        console.log(question);
                         //store1.question.push(question);
                     }
                 }) 
@@ -70,7 +71,7 @@ const postAnswertoo = function(req,res){
 }
 
 const addStudent = function(req,res){
-    const fac_id = req.session.facultySchema;
+    const fac_id = req.session.user;
     fac_id == fac_id.email;
     StudentList.create({
         teacherid:fac_id,

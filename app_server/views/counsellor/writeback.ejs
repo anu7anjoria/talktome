@@ -1,41 +1,15 @@
 <%- include('./dash') -%>
-<div class="page-wrapper">
-<div class="col-md-6">
-       <div class="card">
-           <div class="card-body p-b-0">
-               <h4 class="card-title">Write Here</h4>
-               <!-- Nav tabs -->
-               <ul class="nav nav-tabs customtab" role="tablist">
-                   <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home2" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Add</span></a> </li>
-               </ul>
-               <!-- Tab panes -->
-               <div class="tab-content">
-                   <div class="tab-pane active" id="home2" role="tabpanel">
-                       <div class="p-20">
-                           <div class="row">
-                               <div class="col-12">
-                                   <div class="card">
-                                       <div class="card-body">
-                                           <h4 class="card-title"></h4>
-                                           <h6 class="card-subtitle"></h6>
-                                           <form method="post">
-                                               <div class="form-group">
-                                                   <textarea class="textarea_editor form-control" rows="15" placeholder="Enter text ..." style="height:450px"></textarea>
-                                               </div>
-                                           </form>
-                                           <button type="button" class="btn btn-dark btn-outline btn-rounded m-b-10 m-l-5">Cancel</button>
-                                           <button type="button" class="btn btn-info btn-outline btn-rounded m-b-10 m-l-5">Post</button>
 
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-           </div>
-       </div>
-   </div>
-</div>
+<form method="POST">
+<h6>Enter Reciever Info:</h6><br>
+<label for="email"></label>
+<input type="text" name="email">
+
+<h6>Enter Text</h6><br>
+<label for="etext"></label>
+<input type="text" name="etext">
+
+<button type="submit">Send Email</button>
+</form>
 
 <%- include('./footer') -%>
-

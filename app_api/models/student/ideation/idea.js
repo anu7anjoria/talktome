@@ -14,12 +14,12 @@ const mongoose = require('mongoose');
 const ideaSchema = new mongoose.Schema
 ({
   ideaId:Number,
-   mid:{
-     type:Number,
+   sid:{
+     type:String,
      //required:true
    },
    description:{type:String},
-   status:Boolean,
+   status:String,
    date:{type:Date,default:Date.now},
    upvotes:{type:Number,default:0}
 });

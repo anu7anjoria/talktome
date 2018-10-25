@@ -1,11 +1,11 @@
 <%- include('./dash') -%>
-
 <table>
         <% for(var i=0; i < data.length; i++) { %>
-    <tr>
-     <td><%= data[i].description %></td>
-     <td><%= data[i].date %></td>
-    </tr>
-    <% } %>
-    </table>
+           <tr>
+             <td><%= data[i].sid %></td>
+             <td><%= data[i].description %></td>
+             <td><%= data[i].date %></td>
+           </tr>
+        <% } %>
+</table>
 <%- include('./footer') -%>

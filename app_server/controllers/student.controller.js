@@ -5,6 +5,7 @@ const feed = mongoose.model('feed');
 const Cousnel = mongoose.model('counselling');
 const question = mongoose.model('question');
 const questionAns = mongoose.model('questionAns');
+const ideaReply = mongoose.model('IdeaReply')
 const request = require('request');
 const apiOptions = {
   server : 'http://localhost:3000'
@@ -20,6 +21,7 @@ const AnswerReadOne = function(req,res){
         if(err) {
             console.log("There was a problem finding the ticket.");
         } else {
+            console.log(questionAns);
             res.render('./student/feedback/dispques',{ data:questionAns })
          }
     })   
@@ -58,10 +60,12 @@ const AskQuestionPost = function(req,res){
 
 const Idea = function(req,res){
     const path = '/api/student/ideation';
+    const user_id = req.session.user;
     const requestOption = {
       url : apiOptions.server + path,
       method : 'POST',
       json : {
+        sid:user_id,
         description:req.body.idescription,
       },
       qs : {}
@@ -99,11 +103,12 @@ const FeedbackSubjectPost= function(req,res){
 }
 const CousnellingPost = function(req,res){
     const path = '/api/student/counselling/prcounsel';
+    const user_id = req.session.user;
     const requestOption = {
       url : apiOptions.server + path,
       method : 'POST',
       json : {
-          counselId:req.body.ccounselId,
+          counselId:user_id,
           title:req.body.ctitle,
           description:req.body.cdescription,
       },
@@ -125,6 +130,20 @@ const CousnellingPost = function(req,res){
       );
 }
 
+const ShowModReply = function(req,res){
+    const user_id = req.session.user;
+     ideaReply.findOne({
+        sid:user_id.email
+    },(err,ideaReply) =>{
+        if(err){
+            res
+                .status(400)
+                .json(err);
+        }else{
+         res.render('./student/ideation/response',{data:ideaReply});
+        }
+    })
+}
 
 const Detail = function(req,res){
     res.render('./StudentProfile',{title:'Your Details'});
@@ -163,5 +182,5 @@ const AskQuestion = function(req,res){
 
 module.exports = {
     Student,Feedback,FeedbackHostel,FeedbackSubject,Counselling,Ideation,Question,Idea,
-    Detail,FeedbackSubjectPost,CousnellingPost,AskQuestion,AskQuestionPost,AnswerReadOne
+    Detail,FeedbackSubjectPost,CousnellingPost,AskQuestion,AskQuestionPost,AnswerReadOne,ShowModReply
 }

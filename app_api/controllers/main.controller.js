@@ -5,6 +5,7 @@ module.exports.SignUpCreate = function(req,res){
     if (req.body.email &&
         req.body.password) {
         var userData = {
+          flag:req.body.flag,
           email: req.body.email,
           password: req.body.password,
           subjectName:req.body.subjectName,

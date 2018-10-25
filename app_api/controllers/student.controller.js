@@ -12,6 +12,7 @@ const sendJsonResponse = function(res, status, content) {
 //IDEA=================================================================================================IDEA
 module.exports.CreateIdea = function (req, res) {
     Idea.create({
+        sid:req.body.sid,
         description:req.body.description,
         },function(err, Idea) { 
         }, (err,Idea) =>{
