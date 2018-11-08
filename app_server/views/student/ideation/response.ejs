@@ -1,3 +1,39 @@
 <%- include('./dash') -%>
-<%= data.description %>
+  <!-- Content -->
+  <div class="content">
+    <!-- Card -->
+    <article class="card card-cascade narrower">
+      <!-- Card heading -->
+      <section class="view gradient-card-header purple-gradient narrower py-3 mb-4 d-flex justify-content-center align-items-center">
+        <span class="white-text mx-3">Ideation Status</span>
+      </section>
+      
+      <!-- Card content -->
+      <section class="px-4">
+        <!-- Table -->
+        <section class="table-wrapper">
+          <table class="table table-hover mb-0">
+            <thead>
+              <tr>
+                <th class="th-md">Status</th>
+                <th class="th-md">Reason</th>
+                <th class="th-md">Date</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+               <td> <%= data.status %></td>
+                <td><%= data.description %></td>
+               <td> <%= data.date %></td>
+              </tr>
+             
+            </tbody>
+          </table>
+        </section>
+
+      </section>
+    </article>
+
+  </div>
 <%- include('./footer') -%>

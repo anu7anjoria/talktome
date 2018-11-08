@@ -55,10 +55,6 @@ var sessionChecker = (req, res, next) => {
   }    
 };
 
-// route for Home-Page
-app.get('/', sessionChecker, (req, res) => {
-  res.redirect('/login');
-});
 
 // route for user signup
 app.route('/signup')
@@ -70,6 +66,7 @@ app.route('/signup')
             flag:req.body.isOther,
             email: req.body.email,
             password: req.body.password,
+            phone:req.body.phone,
             subjectName:req.body.subjectName,
             facultyName:req.body.facultyName
         })

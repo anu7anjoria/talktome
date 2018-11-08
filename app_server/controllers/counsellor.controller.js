@@ -6,46 +6,46 @@ const DisplayCounsellor = function(req,res){
                 if(err) {
                     console.log("There was a problem .");
                 } else {
-                    res.render('./counsellor/counsellor',{data:Counsel})
+                    //here will be loop user
+                    res.render('./counsellor/dispcounsel',{data:Counsel})
                 }
     })
 }
 
 const CounselReply = function(req,res){
-    // nodemailer.createTestAccount((err, account) => {
-    //     // create reusable transporter object using the default SMTP transport
-    //     let transporter = nodemailer.createTransport({
-    //         port: 587,
-    //         secure: false, // true for 465, false for other ports
-    //         service: 'gmail',
-    //         auth: {
-    //             user: 'edwardswift28@gmail.com', // generated ethereal user
-    //             pass: 'analkumargta' // generated ethereal password
-    //         }
-    //     });
+    var outputText = req.body.etext;
+    var recieverEmail = req.body.email;
+    var user_id = req.session.user;
+    var transporter = nodemailer.createTransport({
+        host: 'mail.google.com',
+        port: 587,
+        secure: false, // true for 465, false for other ports
+     
+        service: 'gmail',
+        auth: {
+            user: user_id.email, // generated ethereal user
+            pass: user_id.password  // generated ethereal password
+           },
     
-    //     // setup email data with unicode symbols
-    //     let mailOptions = {
-    //         from: 'anusanjoria@gmail.com', // sender address
-    //         to:     'edwardswift28@gmail.com', // list of receivers
-    //         subject: 'Hello ✔', // Subject line
-    //         text: 'Hello world?', // plain text body
-    //         html: '<b>Hello world?</b>' // html body
-    //     };
-    
-    //     // send mail with defined transport object
-    //     transporter.sendMail(mailOptions, (error, info) => {
-    //         if (error) {
-    //             return console.log(error);
-    //         }
-    //         console.log('Message sent: %s', info.messageId);
-    //         // Preview only available when sending through an Ethereal account
-    //         console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-    
-    //         // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-    //         // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-    //     });
-    // });
+        tls:{
+          rejectUnauthorized:false
+        }
+       });
+
+       let mailOptions = {
+        from: '"edwardswift28" <edwardswift28@gmail.com>', // sender address
+        to: recieverEmail, // list of receivers
+        subject: 'Counselling Info', // Subject line
+        text: outputText, // plain text body
+        html: outputText // html body
+    };
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }else{
+            res.redirect('/counsellor/writeback');
+        }
+    });
 }
 
 const Counsellor = function(req,res){

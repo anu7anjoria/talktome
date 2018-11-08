@@ -23,6 +23,7 @@
 <![endif]-->
 </head>
 
+
 <body class="fix-header fix-sidebar">
     <!-- Preloader - style you can find in spinners.css -->
     <!-- Main wrapper  -->
@@ -32,9 +33,9 @@
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col-lg-4">
-                        <div class="login-content card">
+                        <div class="login-content card" style="background-color:black" >
                             <div class="login-form">
-                                <h4>Register</h4>
+                                <h4>Student</h4>
                                 <form method="POST">
                                     <div class="form-group">
                                         <label for="email">Email address</label>
@@ -45,8 +46,12 @@
                                         <input type="password" class="form-control" placeholder="Password" name="password" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="passwordConf">Retyoe-Password</label>
+                                        <label for="passwordConf">Retype-Password</label>
                                         <input type="password" class="form-control" placeholder="Password" name="passwordConf" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone</label>
+                                        <input type="number" class="form-control" placeholder="Phone" name="phone" >
                                     </div>
                                     <div class="form-group">
                                         <label for="facultyName">Teacher</label>
@@ -55,18 +60,6 @@
                                     <div class="form-group">
                                         <label for="subjectName">Subject</label>
                                         <input type="text" class="form-control" placeholder="Subject" name="subjectName" >
-                                    </div>
-                                    <div class="form-group">
-                                            <label for="isOther">Faculty</label>
-                                            <input type="checkbox" value="faculty" class="form-control" name="isOther">
-                                    </div>
-                                    <div class="form-group">
-                                            <label for="isOther">Moderator</label>
-                                            <input type="checkbox" value="moderator" class="form-control" name="isOther">
-                                    </div>
-                                    <div class="form-group">
-                                            <label for="isOther">Counsellor</label>
-                                            <input type="checkbox" value="counsellor" class="form-control" name="isOther">
                                     </div>
                                     <!-- <div class="form-group">
                                         <label for="dept">Department</label>
@@ -106,6 +99,48 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-4">
+                        <div class="login-content card"  style="background-color:black">
+                            <div class="login-form">
+                                    <form method="POST">
+                                            <div class="form-group">
+                                                    <h4>Faculty|Counsellor|Moderator</h4>
+                                                    <label for="email">Email address</label>
+                                                    <input type="email" class="form-control" placeholder="Email" name="email" required>
+                                                </div> &nbsp
+                                                <div class="form-group">
+                                                    <label for="password">Password</label>
+                                                    <input type="password" class="form-control" placeholder="Password" name="password" required>
+                                                </div>&nbsp
+                                                <div class="form-group">
+                                                    <label for="passwordConf">Retype-Password</label>
+                                                    <input type="password" class="form-control" placeholder="Password" name="passwordConf" >
+                                                </div>
+                                                
+                                                <h4>Select Type</h4>
+                                            <div class="form-group">
+                                                    
+                                                    <input type="radio" class="radio" value="faculty" class="form-control" name="isOther">
+                                                    <label for="isOther">Faculty</label>
+                                            </div>
+                                            <div class="form-group">
+                                                    
+                                                    <input type="radio" class="radio" value="moderator" class="form-control" name="isOther">
+                                                    <label for="isOther">Moderator</label>
+                                            </div>
+                                            <div class="form-group">
+
+                                                    <input type="radio" class="radio"value="counsellor" class="form-control" name="isOther">
+                                                    <label for="isOther">Counsellor</label>
+                                            </div>
+                                            <button type="submit"class="btn btn-primary btn-flat m-b-30 m-t-30">Sign UP</button>
+                                            <div class="register-link m-t-15 text-center">
+                                                    <p>Already have account ? <a href="/login">Register</a></p>
+                                            </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -113,6 +148,7 @@
     </div>
     <!-- End Wrapper -->
     <!-- All Jquery -->
+    
     <script src="js/lib/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="js/lib/bootstrap/js/popper.min.js"></script>

@@ -1,7 +1,46 @@
 <%- include('./dash') -%>
 
+   <!-- Content -->
+   <div class="content">
+        <!-- Card -->
+        <article class="card card-cascade narrower">
+          <!-- Card heading -->
+          <section class="view gradient-card-header purple-gradient narrower py-3 mb-4 d-flex justify-content-center align-items-center">
+            <span class="white-text mx-3">Title here</span>
+          </section>
 
-<h1>Recent Submit</h1>
+          <!-- Card content -->
+          <section class="px-4">
+            <!-- Table -->
+            <section class="table-wrapper">
+              <table class="table table-hover mb-0">
+                <thead>
+                  <tr>
+                    <th class="th-md">ID</th>
+                    <th class="th-md">Email</th>
+                    <th class="th-md">Description</th>
+                    <th class="th-md">Date</th>
+                  </tr>
+                </thead>
 
+                <tbody>
+                  <tr>
+                        <% for(var i=0; i < data.length; i++) { %>
+                                <tr>
+                                 <td><%= data[i].id %></td>
+                                 <td><%= data[i].userEmail %></td>
+                                  <td><%= data[i].description %></td>
+                                  <td><%= data[i].date %></td>
+                                </tr>
+                             <% } %>
+                  </tr>
+                 
+                </tbody>
+              </table>
+            </section>
 
+          </section>
+        </article>
+
+      </div>
 <%- include('./footer') -%>

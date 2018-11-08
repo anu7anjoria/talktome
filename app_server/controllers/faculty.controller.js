@@ -10,34 +10,58 @@ const apiOptions = {
     server : 'http://localhost:3000'
   };
   if (process.env.NODE_ENV === 'production') {
-    apiOptions.server = '';
+    apiOptions.server = 'http://talktomechitkara.herokuapp.com';
   }
 // const pushStore = function(a){
 //     store1.push(a);
 // }
 // pushStore(question);
+var flag = false;
+var store=[];
 const DisplayQues = function(req,res){
     const facultySchema_id = req.session.user;
     //facultynaam = facultynaam.email;
     user.find({
-        facultyName:facultySchema_id.email,    
+        facultyName:facultySchema_id.email,  
     },function(err,user){
         if(err) {
             console.log("There was a problem .");
         } else {
-            for(var i=0 ; i<user.length ; i++){
-                var newID = new Array();
-                newID[i] = user[i]._id;
+            // for(var i=0 ; i<user.length ; i++){
+            //     var newID = new Array();
+            //     newID[i] = user[i]._id;
+            //     question.findOne(
+            //         {sId:newID[i]},function(err,question){
+            //         if(err) {
+            //             console.log("There was a problem.");
+            //         } else {
+            //             res.render('./faculty/dispquestion',{data:store});
+
+            //             //console.log(question);
+            //             //store1.question.push(question);
+            //             //res.render('./faculty/dispquestion');
+            //             //store.push(question);
+            //         }
+            //     }) 
+            // }
+            // console.log(store);
+            //res.render('./faculty/dispquestion',{data:store});
+            var newID = new Array();
+                newID[0]    = user[0]._id;
                 question.findOne(
-                    {sId:newID[i]},function(err,question){
+                    {sId:newID[0]},function(err,question){
                     if(err) {
                         console.log("There was a problem.");
                     } else {
-                        console.log(question);
+                            //console.log(question);
+                        res.render('./faculty/dispquestion',{data:question});
+
+                        //console.log(question);
                         //store1.question.push(question);
+                        //res.render('./faculty/dispquestion');
+                        //store.push(question);
                     }
                 }) 
-            }
         }  
     })
     //console.log(store1);

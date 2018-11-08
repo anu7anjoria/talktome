@@ -1,22 +1,41 @@
 <%- include('./dash') -%>
+<div class="content">
+
+        <!-- First subject card -->
+        <article class="card card-cascade wider">
+          <section class="view gradient-card-header purple-gradient overlay d-flex align-items-center justify-content-center pt-2 pb-2">
+            <h3>Respond to Innovative Students</h3>
+          </section>
+
+          <section class="card-body">
+            <!-- First card deck -->
+            <section class="card-deck">
+              <section class="card">
+                <section class="view overlay p-3 text-center">
+                  
+                        <form method="POST">
+                                <h6>Enter Email of student</h6><br>
+                                <label for="email"></label>
+                                <input type="text" name="email">
+                            
+                                <!-- here u can create dropdown -->
+                                <h6>Enter Mini Response</h6><br>
+                                <label for="status"></label>
+                                <input type="text" name="status">
+                            
+                                <h6>Enter Response Text</h6><br>
+                                <label for="rtext"></label>
+                                <textarea name="rtext"></textarea>
+                                <br><br>
+                                <button class="btn btn-elegant"type="submit">Submit</button>
+                            </form>
+                </section>
+              </section>
+            </section>
+          </section>
+        </article>
 
 
-<h1>Response Post will Be written Here</h1>
-<form method="POST">
-    <h6>Enter Email of studemt</h6><br>
-    <label for="email"></label>
-    <input type="text" name="email">
 
-    <!-- here u can create dropdown -->
-    <h6>Enter Mini Resposne</h6><br>
-    <label for="status"></label>
-    <input type="text" name="status">
-
-    <h6>Enter Response Text</h6><br>
-    <label for="rtext"></label>
-    <input type="text" name="rtext">
-
-    <button type="submit">Submit</button>
-</form>
 
 <%- include('./footer') -%>

@@ -18,6 +18,7 @@ const ideaSchema = new mongoose.Schema
      type:String,
      //required:true
    },
+   userEmail:String,
    description:{type:String},
    status:String,
    date:{type:Date,default:Date.now},

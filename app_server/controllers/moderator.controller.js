@@ -7,7 +7,7 @@ const DisplayIdea = function(req,res){
         if(err) {
             console.log("There was a problem finding the ticket.");
         } else {
-            res.render('./moderator/moderator',{ data:Idea })       
+            res.render('./moderator/newlysubmitted',{ data:Idea })       
          }
     })   
 }

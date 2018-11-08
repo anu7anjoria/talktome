@@ -12,6 +12,7 @@ const sendJsonResponse = function(res, status, content) {
 //IDEA=================================================================================================IDEA
 module.exports.CreateIdea = function (req, res) {
     Idea.create({
+        userEmail:req.body.userEmail,
         sid:req.body.sid,
         description:req.body.description,
         },function(err, Idea) { 
@@ -57,6 +58,7 @@ module.exports.IdeaReadOne = function(req,res){
 
 module.exports.AskQuestionPost = function(req,res){
     question.create({
+        emailofStudent:req.body.emailofStudent,
         sId:req.body.user_id,
         subjectId:req.body.subjectId,
         title:req.body.title,
@@ -104,6 +106,8 @@ module.exports.FeedbackReadOne = function(req,res){
 
 module.exports.CousnellingPost = function(req,res){
     Counsel.create({
+        userEmail:req.body.userEmail,
+        phoneId:req.body.phoneId,
         counselId:req.body.counselId,
         title:req.body.title,
         description:req.body.description,

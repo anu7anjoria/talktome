@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const question = new mongoose.Schema({
         sId:String,
+        emailofStudent:String,
         subjectId:String,
         title:String,
         description:String,

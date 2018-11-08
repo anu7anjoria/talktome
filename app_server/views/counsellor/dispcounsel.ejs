@@ -1,11 +1,11 @@
-<%- include('./dash') -%>  
+<%- include('./dash') -%>
   <!-- Content -->
   <div class="content">
     <!-- Card -->
     <article class="card card-cascade narrower">
       <!-- Card heading -->
       <section class="view gradient-card-header purple-gradient narrower py-3 mb-4 d-flex justify-content-center align-items-center">
-        <span class="white-text mx-3">Feedback | Questions</span>
+        <span class="white-text mx-3">Counsellor | Issues</span>
       </section>
 
       <!-- Card content -->
@@ -15,14 +15,19 @@
           <table class="table table-hover mb-0">
             <thead>
               <tr>
-                <th class="th-md">Topic</th>
-                <th class="th-md">Solution</th>
+                <th class="th-md">Student Email</th>
+                <th class="th-md">Counsel ID</th>
+                <th class="th-md">Title</th>
+                <th class="th-md">Description</th>
               </tr>
             </thead>
 
             <tbody>
               <% for(var i=0; i < data.length; i++) { %>
                 <tr>
+                   
+                  <td><%= data[i].userEmail %></td>
+                  <td><%= data[i].counselId %></td>
                   <td><%= data[i].title %></td>
                   <td><%= data[i].description %></td>
                 </tr>
@@ -35,5 +40,5 @@
       </section>
     </article>
 
-  </div>        
+  </div>
 <%- include('./footer') -%>

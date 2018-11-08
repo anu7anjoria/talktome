@@ -1,11 +1,38 @@
 <%- include('./dash') -%>
-<table>
-        <% for(var i=0; i < data.length; i++) { %>
-           <tr>
-             <td><%= data[i].sid %></td>
-             <td><%= data[i].description %></td>
-             <td><%= data[i].date %></td>
-           </tr>
-        <% } %>
-</table>
+
+
+<div class="content">
+        <article class="card card-cascade wider">
+            <section class="view gradient-card-header aqua-gradient overlay d-flex align-items-center justify-content-center pt-2 pb-2">
+                    <h2>WeLcome Moderator</h2>
+                  </section>
+                  
+                  <section class="card-body">
+                    <section class="card-deck">
+                      <section class="card">
+                        <section class="view overlay p-3 text-center">
+                          <h6 class="deep-orange-text darken-4">
+                            <i class="fas fa-file-powerpoint"></i>
+                            Recent Submits
+                          </h6>
+                          <p class="card-text">View Submitted Ideas by Students!</p>
+                          <a class="btn btn-deep-orange" role="button" href="/faculty/postanswer">Submissions</a>
+                        </section>
+                      </section>
+                      
+                      <section class="card">
+                        <section class="view overlay p-3 text-center">
+                          <h6 class="indigo-text darken-4">
+                            <i class="fas fa-sticky-note"></i>
+                           Give Response
+                          </h6>
+                          <p class="card-text">Respond to the student</p>
+                          <a class="btn btn-indigo" role="button" href="">Respond</a>
+                        </section>
+                      </section>
+                    </section>
+                  </section>
+                </article>
+        </div>
+
 <%- include('./footer') -%>

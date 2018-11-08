@@ -11,7 +11,7 @@ const apiOptions = {
   server : 'http://localhost:3000'
 };
 if (process.env.NODE_ENV === 'production') {
-  apiOptions.server = '';
+  apiOptions.server = 'https://talktomechitkara.herokuapp.com';
 }
 const AnswerReadOne = function(req,res){
     user_id = req.session.user;
@@ -21,7 +21,7 @@ const AnswerReadOne = function(req,res){
         if(err) {
             console.log("There was a problem finding the ticket.");
         } else {
-            console.log(questionAns);
+            //console.log(questionAns);
             res.render('./student/feedback/dispques',{ data:questionAns })
          }
     })   
@@ -35,13 +35,14 @@ const AskQuestionPost = function(req,res){
       method : 'POST',
       json : {
         user_id:user_id,
+        emailofStudent:user_id.email,
         subjectId:req.body.qsubjectId,
         title:req.body.qtitle,
         description:req.body.qdescription,
       },
       qs : {}
     };
-    console.log(req.session.user);
+    //console.log(req.session.user);
     request(
         requestOption,
         (err,response,body)=>{
@@ -65,6 +66,7 @@ const Idea = function(req,res){
       url : apiOptions.server + path,
       method : 'POST',
       json : {
+        userEmail:user_id.email,
         sid:user_id,
         description:req.body.idescription,
       },
@@ -108,6 +110,8 @@ const CousnellingPost = function(req,res){
       url : apiOptions.server + path,
       method : 'POST',
       json : {
+          userEmail:user_id.email,
+          phoneId:user_id.phone,
           counselId:user_id,
           title:req.body.ctitle,
           description:req.body.cdescription,

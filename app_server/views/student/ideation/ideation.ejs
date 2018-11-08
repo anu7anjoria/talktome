@@ -1,9 +1,35 @@
 
 <%- include('./dash') -%>
-<form method="POST">
-    <label name="idescription"></label>
-    <textarea name="idescription"></textarea>
-    <button type="submit">Post</button>
-</form>
+
+<div class="content">
+
+        <!-- First subject card -->
+        <article class="card card-cascade wider">
+          <section class="view gradient-card-header purple-gradient overlay d-flex align-items-center justify-content-center pt-2 pb-2">
+            
+            <h4 class="card-header">Ideation</h4>
+          </section>
+
+          <section class="card-body">
+            <!-- First card deck -->
+            <section class="card-deck">
+              <section class="card">
+                <section class="view overlay p-3 text-center">
+                        <form method="POST">
+                                <h4>Submit an Idea here</h4>
+                                <br>
+                                <label name="idescription"></label>
+                                <textarea name="idescription"></textarea>
+                                <br><br>
+                                <button type="submit"  class="btn btn-indigo">Post</button>
+                            </form>
+
+                </section>
+              </section>
+            </section>
+          </section>
+        </article>
+
+
 
 <%- include('./footer') -%>

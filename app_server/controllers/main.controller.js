@@ -5,7 +5,7 @@ const apiOptions = {
   server : 'http://localhost:3000'
 };
 if (process.env.NODE_ENV === 'production') {
-  apiOptions.server = '';
+  apiOptions.server = 'http://talktomechitkara.herokuapp.com';
 }
 
 const SignUpCreate = function(req,res){

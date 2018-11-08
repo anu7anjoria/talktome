@@ -16,7 +16,9 @@ const counsellingSchema = new mongoose.Schema
      type:Number,
      //required:true
    },
+   userEmail:String,
    counselId:{type:String},
+   phoneId:{type:Number},
    title:String,
    description:String,
    date: { type: Date, default: Date.now },

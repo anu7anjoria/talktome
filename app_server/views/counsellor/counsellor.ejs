@@ -1,13 +1,40 @@
-<<%- include('./dash') -%>
+<%- include('./dash') -%>
 
-<table>
-        <% for(var i=0; i < data.length; i++) { %>
-           <tr>
-             <td><%= data[i].counselId %></td>
-             <td><%= data[i].title %></td>
-             <td><%= data[i].description %></td>
-           </tr>
-        <% } %>
-</table>
+Make here clickable tiles
+<div class="content">
+<article class="card card-cascade wider">
+    <section class="view gradient-card-header aqua-gradient overlay d-flex align-items-center justify-content-center pt-2 pb-2">
+            <img src="./img/teachers/ross-geller.jpg" class="rounded-circle" alt="Profile picture" height="60px" width="60px">
+            
+          </section>
+          
+          <section class="card-body">
+            <section class="card-deck">
+              <section class="card">
+                <section class="view overlay p-3 text-center">
+                  <h6 class="deep-orange-text darken-4">
+                    <i class="fas fa-file-powerpoint"></i>
+                    View Problem
+                  </h6>
+                  <p class="card-text">Have Doubts? Want to ask a question. Click here</p>
+                  <a class="btn btn-deep-orange" role="button" href="counsellor/displaycounsel">Feedback</a>
+                </section>
+              </section>
+              
+              <section class="card">
+                <section class="view overlay p-3 text-center">
+                  <h6 class="indigo-text darken-4">
+                    <i class="fas fa-sticky-note"></i>
+                    Give Assignment
+                  </h6>
+                  <p class="card-text">Came up with an idea! Share and help!</p>
+                  <a class="btn btn-indigo" role="button" href="counsellor/writeback">Ideation</a>
+                </section>
+              </section>
+            </section>
+          </section>
+        </article>
+</div>
+
 
 <%- include('./footer') -%>

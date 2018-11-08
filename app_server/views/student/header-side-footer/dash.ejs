@@ -10,13 +10,13 @@
   <!-- Normalize browser inconsistencies -->
 
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <script defer src="./js/fontawesome-all.min.js"></script>
+  <script defer src="/js/fontawesome-all.min.js"></script>
   <!-- MD Bootstrap -->
-  <link rel="stylesheet" href="./css/mdb.min.css">
+  <link rel="stylesheet" href="/css/mdb.min.css">
   <!-- Custom stylesheet -->
-  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="/css/styles.css">
 
   <style>
     /* Scrollbar styling */
@@ -69,17 +69,29 @@
         <li class="nav-item active">
           <a href="/student/ideation" class="nav-link btn btn-block btn-lg">
             <i class="fa fa-lightbulb-o" aria-hidden="true"></i> 
-            <span>Ideation</span>
-            <span class="badge red d-flex align-items-center justify-content-center">New</span>
+            <span>Ideation | Post</span>
+            <span class="badge red d-flex align-items-center justify-content-center"></span>
           </a>
         </li>
+        <li class="nav-item active">
+            <a href="/student/ideation/response" class="nav-link btn btn-block btn-lg">
+              <i class="fa fa-lightbulb-o" aria-hidden="true"></i> 
+              <span>Ideation | Status</span>
+              <span class="badge red d-flex align-items-center justify-content-center">New</span>
+            </a>
+          </li>
         <li class="nav-item btn-group">
-          <a href="/student/feedback" class="nav-link btn btn-block btn-lg dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
+          <a href="/student/feedback" class="nav-link btn btn-block btn-lg">
             <i class="fa fa-commenting-o" aria-hidden="true"></i>
               <span>Feedback</span>
           </a>
         </li>
+        <li class="nav-item btn-group">
+            <a href="/student/feedback/response" class="nav-link btn btn-block btn-lg">
+              <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                <span>Feedback | Response</span>
+            </a>
+          </li>
         <li class="nav-item">
           <a href="/student/counselling" class="nav-link btn btn-block btn-lg">
             <i class="fa fa-user" aria-hidden="true"></i>
@@ -130,7 +142,7 @@
               <div class="dropdown-menu dropdown-menu-right dropdown-menu-secondary">
                 <a class="dropdown-item waves-effect waves-light" href="#">Profile</a>
                 <a class="dropdown-item waves-effect waves-light" href="#">Contact</a>
-                <a class="dropdown-item waves-effect waves-light" href="#">Log Out</a>
+                <a class="dropdown-item waves-effect waves-light" href="/logout">Log Out</a>
               </div>
             </li>
           </ul>
